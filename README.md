@@ -1,24 +1,17 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The Tierceron Construction Set (TCS) is a Ruby on Rails app to improve the building experience for Covenant MUD. Use the navigation options
+at the top to move around the site.
 
-Things you may want to cover:
+Let's face it, SMAUG's built in On-Line Creation (OLC) was adequate for the 1990s, but it's never made for a great user experience. Offline
+tools like ORB never quite reached maturity and aren't without their shortcomings.The finished version of TCS will allow you to create and
+edit Rooms, Objects, Mobiles, and Zone metadata. There are multiple user roles in TCS: lower-level roles will only be allowed to edit VNUMs
+within their assigned range; higher-level roles will have broader access. The database is populated by importing SMAUG's text files via rake
+task, for example: rake db:import_objects[filename] will import the objects from the specified SMAUG area file.
 
-* Ruby version
+You can also edit socials in TCS so you aren't stuck using the clumsy sedit command within the MUD.
 
-* System dependencies
+Covenant MUD has fields that stock SMAUG does not, so TCS will not work for other SMAUG MUDs without some (admittedly minor) tweaking.
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Currently running with Ruby 2.6.1, Rails 5.2.2, and PostgreSQL. Uses Devise for authentication and CanCanCan for authorization. Deployed to 
+a free Heroku dyno at https://tierceron-construction-set.herokuapp.com.
