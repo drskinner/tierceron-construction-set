@@ -1,0 +1,8 @@
+en:
+  activerecord:
+    attributes:
+      role:
+        builder: "Builder"
+        gsa: "System Admin"
+        guest: "Guest"
+        implementor: "Implementor"
