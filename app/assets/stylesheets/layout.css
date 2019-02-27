@@ -1,0 +1,26 @@
+div#welcome {
+  text-align: right;
+  padding-top: 15px;
+}
+
+.alert-error, .alert-alert {
+  background-color: #f2dede;
+  border-color: #ebccd1;
+  color: #a94442;
+}
+
+.alert-notice {
+  background-color: #fcf8e3;
+  border-color: #faf2cc;
+  color: #8a6d3b;
+}
+
+footer {
+  background: #585858;
+  color: white;
+  height: auto;
+  margin-top: 20px;
+  padding: 10px 20px 10px 20px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

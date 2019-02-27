@@ -9,4 +9,8 @@ class User < ApplicationRecord
   def set_default_role
     self.role_id = Role.find_by(name: 'guest').id if self.new_record?
   end
+
+  def name_display
+    last_name.blank? ? first_name : "#{first_name} #{last_name}"
+  end
 end
