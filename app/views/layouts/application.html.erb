@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TierceronConstructionSet</title>
+    <title>Tierceron Construction Set</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,15 +10,38 @@
   </head>
 
   <body>
-    <% if user_signed_in? %>
-      Welcome, <strong><%= current_user.first_name %> (<%= current_user.email %>)</strong>!<br />
-      <%= link_to 'Edit profile', edit_user_registration_path, class: 'navbar-link' %> |
-      <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'navbar-link' %>
-    <% end %>
+    <div class="container">
+      <header class="row">
+        <div id="mudlogo" class="col-md-8">
+          <%= image_tag('mudlogo.png', class: 'img-fluid', alt: 'Covenant MUD') %>
+        </div>
+        <div id="welcome" class="col-md-4">
+          <% if user_signed_in? %>
+            Welcome, <b><%= current_user.name_display %> (<%= current_user.email %>)</b>!<br>
+            <%= link_to 'Edit profile', edit_user_registration_path, class: 'navbar-link' %> |
+            <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'navbar-link' %>
+          <% end %>
+        </div>
+      </header>
 
-    <% flash.each do |key, value| %>
-      <div class="alert alert-<%= key %>"><%= value %></div>
-    <% end %>
-    <%= yield %>
+      <% if user_signed_in? %>
+        <nav id="top-nav" class="row">
+          Navigation Goes Here
+        </nav>
+      <% end %>
+
+      <!-- breadcrumbs and actions -->
+
+      <section id="main-content" class="row">
+        <% flash.each do |key, value| %>
+          <div class="alert alert-<%= key %> w-100"><%= value %></div>
+        <% end %>
+        <%= yield %>
+      </section>
+
+      <footer class="row">
+        <span>Covenant MUD Building Tools Copyright &copy; <%= Time.now.year %> Myles L. Skinner&mdash;All Rights Reserved.</span>
+      </footer>
+    </div>
   </body>
 </html>
