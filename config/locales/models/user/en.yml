@@ -1,0 +1,29 @@
+en:
+  activerecord:
+    attributes:
+      user:
+        email: "Email"
+        first_name: "First Name"
+        first_name_devise_hint: "Your Immortal's name in the MUD; if you are not a member of the MUD, your real name is fine."
+        first_name_hint: "The Immortal's name in the MUD, not their real name."
+        last_name: "Last Name"
+        password: "Password"
+        password_confirmation: "Confirm Password"
+        password_current_hint: "We need your current password to confirm your changes."
+        password_edit_hint: "Leave blank if you don't want to change it."
+        password_forgot_hint: "Enter the email address you signed up with."
+        password_hint: "6 characters minimum."
+        role: "Role"
+        role_id: "Role"
+  user:
+    fieldset:
+      forgot_password: "Forgot your password?"
+      log_in: "Log In to TCS"
+      register: "Register for Access"
+    instructions:
+      sign_in: "You can register for guest access even if you are not a member of the MUD."
+    link:
+      register: "Register for Access"
+      registration_login: "Already a member? %{link} to your account."
+
+

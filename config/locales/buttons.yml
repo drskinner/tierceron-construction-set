@@ -1,0 +1,6 @@
+en:
+  button:
+    user:
+      password_reset: "Send me reset password instructions"
+      register: "Register"
+      sign_in: "Sign In"
