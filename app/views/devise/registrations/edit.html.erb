@@ -7,7 +7,7 @@
   <%= f.error_notification %>
 
   <fieldset class="devise-profile">
-    <legend>Update My Profile</legend>
+    <legend><%= I18n.t('user.fieldset.edit_profile') %></legend>
     <%= f.input :first_name, 
                 as: :string, 
                 hint: I18n.t('activerecord.attributes.user.first_name_devise_hint') %>
@@ -21,11 +21,11 @@
     <%= f.input :password, 
                 required: false,
                 autocomplete: 'off', 
-                hint: "leave it blank if you don't want to change it" %>
+                hint: I18n.t('activerecord.attributes.user.password_edit_hint') %>
     <%= f.input :password_confirmation, required: false %>
     <%= f.input :current_password, 
                 required: true,
-                hint: "we need your current password to confirm your changes", required: true %>
+                hint: I18n.t('activerecord.attributes.user.password_current_hint') %>
   </fieldset>
 
   <div class="form-actions">
@@ -33,11 +33,12 @@
   </div>
 <% end %>
 
-<div class="simple_form mt-5">
+<div class="simple_form mt-4">
   <fieldset class="devise-profile">
-    <legend>Cancel my account</legend>
-    <p>No longer need access? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+    <legend><%= I18n.t('user.fieldset.cancel_account') %></legend>
+    <p><%= raw I18n.t('user.link.cancel_account', link: (link_to "Cancel my account", 
+                                                         registration_path(resource_name), 
+                                                         data: { confirm: "Are you sure?" }, 
+                                                         method: :delete)) %></p>
   </fieldset>
 </div>
-
-<%= link_to "Back", :back %>
