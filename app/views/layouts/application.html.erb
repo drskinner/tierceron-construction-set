@@ -33,10 +33,12 @@
       <!-- breadcrumbs and actions -->
 
       <section id="main-content" class="row">
-        <% flash.each do |key, value| %>
-          <div class="alert alert-<%= key %> w-100"><%= value %></div>
-        <% end %>
-        <%= yield %>
+        <div class="col-md-12">
+          <% flash.each do |key, value| %>
+            <div class="alert alert-<%= key %> w-100"><%= value %></div>
+          <% end %>
+          <%= yield %>
+        </div>
       </section>
 
       <footer class="row">

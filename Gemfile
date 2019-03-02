@@ -18,6 +18,7 @@ gem 'uglifier', '>= 1.3.0'
 
 gem 'bootstrap', '~> 4.0.0'
 gem 'jquery-rails'
+gem 'simple_form'
 
 # Authentication and Authorization
 gem 'devise'

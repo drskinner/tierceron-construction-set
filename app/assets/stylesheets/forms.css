@@ -1,0 +1,75 @@
+.simple_form fieldset legend {
+  background: linear-gradient(#efefef, #dfe1e2);
+  padding: 5px 0px 5px 10px;
+  margin-bottom: 5px;
+  color: #686868;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #e6e6e6 #d4d4d4 #cdcdcd #d4d4d4;
+}
+
+.simple_form fieldset {
+  background: #f4f4f4;
+  padding-top: 20px;
+  padding-bottom: 5px;
+  margin-bottom: 12px;
+}
+
+.simple_form fieldset.login div.form-group {
+  padding: 0px 20px 0px 20px;  
+}
+
+.simple_form fieldset.login div.form-check {
+  margin-left: 20px;
+  padding-left: 20px;
+}
+
+.simple_form div.form-group {
+  padding-right: 20px;
+}
+
+.simple_form label.col-form-label {
+  color: #5e6469;
+  font-weight: bold;
+  text-align: right;
+}
+
+.simple_form label.required abbr {
+  color: #cc0000;
+  border-bottom: none;
+  text-decoration: none;
+}
+
+.simple_form small.form-text {
+  padding-left: 3px;
+  font-style: italic;
+}
+
+.simple_form fieldset.devise-profile p {
+  margin-left: 20px;
+}
+
+.simple_form input.btn-default {
+  display: inline-block;
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 1.5;
+  text-align: center;
+  vertical-align: middle;
+  width: auto;
+  margin: 5px 5px 10px 20px;
+  background-color: #363b3f;
+  color: #efefef;
+  border: solid 1px #363b3f;
+  border-radius: 3px;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.25s ease-in-out;
+}
+
+.simple_form input.btn-default:hover {
+  background: #686868;
+}
+
+.simple_form div.devise-links {
+  margin: 0px 0px 10px 20px;
+}
