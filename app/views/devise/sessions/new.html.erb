@@ -8,7 +8,7 @@
         <%= f.input :password , label: t('models.user.headings.password'), input_html: { autocomplete: "off" } %>
         <%= f.input :remember_me, label: t('models.user.headings.remember_me'), as: :boolean if devise_mapping.rememberable? %>
 
-        <%= f.submit I18n.t('button.user.sign_in'), class: 'btn login-button' %>
+        <%= f.submit I18n.t('button.user.sign_in'), class: 'btn btn-default' %>
 
         <div class="devise-links">
           <%= render "devise/shared/links" %>

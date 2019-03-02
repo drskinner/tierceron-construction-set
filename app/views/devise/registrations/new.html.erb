@@ -18,7 +18,7 @@
     <%= f.input :password_confirmation, required: true %>
   </fieldset>
 
-  <%= f.submit I18n.t('button.user.register'), class: 'btn login-button' %>
+  <%= f.submit I18n.t('button.user.register'), class: 'btn btn-default' %>
 
   <div class="devise-links">
     <%= raw I18n.t('user.link.registration_login', link: (link_to "Log in", new_session_path(resource_name))) %>
