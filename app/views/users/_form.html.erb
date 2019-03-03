@@ -7,8 +7,6 @@
     <%= f.input :last_name, as: :string %>
     <%= f.input :email, as: :email %>
     <%= f.input :role_id, as: (current_user.internal? ? :select : :show), collection: Role.role_collection(current_user) %>
-    <%#= f.input :role_id, as: :check_boxes, collection: Role.role_collection(current_user) %>
-    <%#= f.input :role_id, as: :radio_buttons, collection: Role.role_collection %>
   </fieldset>
 
   <% if %w(create new).include?(action_name) %>
