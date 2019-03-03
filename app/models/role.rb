@@ -1,4 +1,7 @@
 class Role < ApplicationRecord
+
+  has_many :users
+
   validates_presence_of :name, :rank
 
   def self.role_collection(user = nil)
@@ -7,5 +10,9 @@ class Role < ApplicationRecord
     else
       Role.all.map { |r| [I18n.t("lists.role.#{r.name}"), r.id] }
     end
+  end
+
+  def to_s
+    I18n.t("lists.role.#{name}")
   end
 end

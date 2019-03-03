@@ -40,6 +40,10 @@
   text-decoration: none;
 }
 
+.simple_form div.show-input {
+  padding-top: calc(0.375rem + 1px);
+}
+
 .simple_form small.form-text {
   padding-left: 3px;
   font-style: italic;

@@ -1,0 +1,4 @@
+<% content_for :title, "View #{@user.first_name}" %>
+<% content_for :model_id, @user.id.to_s %>
+
+<%= render 'form' %>
