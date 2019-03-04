@@ -24,6 +24,26 @@ div#welcome {
   -moz-osx-font-smoothing: grayscale;
 }
 
+#actions {
+  text-align: right;
+  padding-top: 1.5rem;
+  padding-right: 2rem;
+}
+
+#actions a {
+  color: #5e6469;
+  background: #e5e5e5;
+  border: solid 1px #c7c7c7;
+  border-radius: 3px;
+  font-weight: bold;
+  transition: background-color 0.25s ease-in-out;
+}
+
+#actions a:hover {
+  color: #656b6f;
+  background: #f8f8f8;
+}
+
 footer {
   background: #585858;
   color: white;
