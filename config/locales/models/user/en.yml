@@ -21,6 +21,8 @@ en:
       edit_profile: "Update My Profile"
       forgot_password: "Forgot your password?"
       log_in: "Log In to TCS"
+      password: "Password"
+      profile: "User Profile"
       register: "Register for Access"
     instructions:
       sign_in: "You can register for guest access even if you are not a member of the MUD."

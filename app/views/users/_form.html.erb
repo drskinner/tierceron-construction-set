@@ -2,7 +2,7 @@
   <%= render partial: 'alerts/validation_errors', locals: { f: f } %>
 
   <fieldset>
-    <legend>User Profile</legend>
+    <legend><%= I18n.t('user.fieldset.profile') %></legend>
     <%= f.input :first_name, as: :string, hint: I18n.t('activerecord.attributes.user.first_name_hint') %>
     <%= f.input :last_name, as: :string %>
     <%= f.input :email, as: :email %>
@@ -11,7 +11,7 @@
 
   <% if %w(create new).include?(action_name) %>
     <fieldset>
-      <legend>Password</legend>
+      <legend><%= I18n.t('user.fieldset.password') %></legend>
       <%= f.input :password, as: :password, hint: I18n.t('activerecord.attributes.user.password_hint'), required: true %>
       <%= f.input :password_confirmation, as: :password, required: true %>
     </fieldset>
