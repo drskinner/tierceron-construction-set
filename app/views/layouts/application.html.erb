@@ -32,6 +32,15 @@
 
       <!-- breadcrumbs and actions -->
 
+      <section id="title-bar" class="row">
+        <div id="title-content" class="col-sm-9 col-xs-8">
+          <h2 id="page_title"><%= yield(:title).present? ? yield(:title) : 'Tierceron Construction Set' %></h2>
+          <% if content_for?(:subtitle) %>
+            <h3 id="page_subtitle"><%= yield(:subtitle) %></h3>
+          <% end %>
+        </div>
+      </section>
+
       <section id="main-content" class="row">
         <div class="col-md-12">
           <% flash.each do |key, value| %>

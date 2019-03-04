@@ -1,0 +1,7 @@
+en:
+  lists:
+    role:
+      builder: "Builder"
+      gsa: "System Admin"
+      guest: "Guest"
+      implementor: "Implementor"

@@ -177,3 +177,17 @@ SimpleForm.setup do |config|
   # config.input_field_valid_class = 'is-valid'
   # config.input_field_error_class = 'is-invalid'
 end
+
+module SimpleForm
+  class FormBuilder < ActionView::Helpers::FormBuilder
+    def input(attribute_name, options = {}, &block)
+      options[:as] = :show if lookup_action == 'show'
+      options = @defaults.deep_dup.deep_merge(options) if @defaults
+
+      input   = find_input(attribute_name, options, &block)
+      wrapper = find_wrapper(input.input_type, options)
+
+      wrapper.render input
+    end
+  end
+end

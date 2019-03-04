@@ -15,6 +15,15 @@ div#welcome {
   color: #8a6d3b;
 }
 
+#title-bar {
+  background: #686868;
+  color: white;
+  height: 100px;
+  margin-bottom: 20px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 footer {
   background: #585858;
   color: white;
