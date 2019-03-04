@@ -1,4 +1,7 @@
 en:
+  action:
+    edit: "Edit %{model}"
+    new: "New %{model}"
   page:
     action_title:
       edit: "Edit %{record}"

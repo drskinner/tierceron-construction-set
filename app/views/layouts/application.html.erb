@@ -30,13 +30,18 @@
         </nav>
       <% end %>
 
-      <!-- breadcrumbs and actions -->
+      <!-- breadcrumbs -->
 
       <section id="title-bar" class="row">
         <div id="title-content" class="col-sm-9 col-xs-8">
           <h2 id="page_title"><%= yield(:title).present? ? yield(:title) : 'Tierceron Construction Set' %></h2>
           <% if content_for?(:subtitle) %>
             <h3 id="page_subtitle"><%= yield(:subtitle) %></h3>
+          <% end %>
+        </div>
+        <div id="actions" class="col-sm-3 col-xs-4">
+          <% if (action = build_action) %>
+            <%= link_to(action[:label], action[:url], class: "btn btn-lg") %>
           <% end %>
         </div>
       </section>
