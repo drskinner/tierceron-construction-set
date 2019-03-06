@@ -3,23 +3,33 @@ module BreadcrumbsHelper
     [].tap { |crumbs|
       case controller_name
       when 'registrations'
-        crumbs << (action_name == 'index' ? 'Users' : link_to('Users', users_path))
+        if (action_name == 'index')
+          crumbs << I18n.t('breadcrumb.users.index')
+        else
+          crumbs << link_to(I18n.t('breadcrumb.users.index'), users_path)
+        end
+
         case action_name
           when 'edit'
             crumbs << link_to("#{@user.name_display}", user_path(@user.id))
-            crumbs << 'Edit Profile'
+            crumbs << I18n.t('breadcrumb.registrations.edit')
           end
 
       when 'users'
-        crumbs << (action_name == 'index' ? 'Users' : link_to('Users', users_path))
+        if (action_name == 'index')
+          crumbs << I18n.t('breadcrumb.users.index')
+        else
+          crumbs << link_to(I18n.t('breadcrumb.users.index'), users_path)
+        end
+
         case action_name
         when 'new'
-          crumbs << 'New User'
+          crumbs << I18n.t('breadcrumb.users.new')
         when 'show'
           crumbs << "#{@user.name_display}"
         when 'edit'
           crumbs << link_to("#{@user.name_display}", user_path(@user.id))
-          crumbs << 'Edit'
+          crumbs << I18n.t('breadcrumb.shared.edit')
         end
       end
     }
