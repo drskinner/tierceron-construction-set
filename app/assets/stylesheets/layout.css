@@ -24,6 +24,18 @@ div#welcome {
   -moz-osx-font-smoothing: grayscale;
 }
 
+#title-content div.breadcrumbs {
+  text-transform: uppercase;
+  margin-top: 5px;
+  font-size: 1rem;
+  font-weight: 500;
+  min-height: 1.5rem;
+}
+
+.breadcrumbs a {
+  color: white;
+}
+
 #actions {
   text-align: right;
   padding-top: 1.5rem;

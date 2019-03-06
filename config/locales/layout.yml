@@ -2,6 +2,14 @@ en:
   action:
     edit: "Edit %{model}"
     new: "New %{model}"
+  breadcrumb:
+    registrations:
+      edit: "Edit Profile"
+    shared:
+      edit: "Edit"
+    users:
+      index: "Users"
+      new: "New User"
   page:
     action_title:
       edit: "Edit %{record}"
