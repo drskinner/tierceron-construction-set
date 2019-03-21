@@ -7,12 +7,18 @@ en:
       edit: "Edit Profile"
     shared:
       edit: "Edit"
+    socials:
+      index: "Socials"
+      new: "New Social"
     users:
       index: "Users"
       new: "New User"
+  messages:
+    no_data: "(No Data)"
   page:
     action_title:
       edit: "Edit %{record}"
       index: "Manage %{model}"
       new: "Create %{model}"
       show: "View %{record}"
+      show_social: "View command: %{record}"

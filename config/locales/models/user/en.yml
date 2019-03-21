@@ -13,6 +13,9 @@ en:
         password_edit_hint: "Leave blank if you don't want to change it."
         password_forgot_hint: "Enter the email address you signed up with."
         password_hint: "6 characters minimum."
+        pronoun_class: "Preferred Pronouns"
+        pronoun_class_hint: "Displayed when testing MUD command outputs within TCS."
+        pronoun_class_prompt: "-- Select Pronoun Type --"
         role: "Role"
         role_id: "Role"
   user:

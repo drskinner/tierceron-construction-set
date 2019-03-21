@@ -1,0 +1,23 @@
+<%= simple_form_for @social do |f| %>
+  <div class="row">
+    <div class="col-md-9">
+      <fieldset>
+        <legend>Social Command</legend>
+        <div class="show-input social-full-parse">
+          <% Social::PARSABLE_FIELDS.each do |field| %>
+            <div class="parsed-social" style="padding-bottom: 10px;">
+              <b><%= I18n.t("activerecord.attributes.social.#{field}_hint") %></b><br>
+              <% value = @social.parsable_field_value(field) %>
+              <%= value.present? ? value : raw("<i>#{I18n.t('messages.no_data')}</i>") %><br>
+              <b>Response:</b> <i><%= @social.parse(field) %></i>
+            </div>
+          <% end %>
+        </div>
+      </fieldset>
+    </div>
+
+    <div class="col-md-3">
+      <%= render 'variables' %>
+    </div>
+  </div>
+<% end %>
