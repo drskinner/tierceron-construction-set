@@ -28,15 +28,8 @@ class Social < ApplicationRecord
   end
 
   def parse(field)
-    if %w(char_auto others_auto).include? field.to_s
-      tokens = Social.tokens
-    else
-      tokens = Social.tokens
-      #tokens = []
-    end
-
     message = self.send(field.to_sym) if self.respond_to?(field.to_sym)
-    tokens.each { |old, new| message.gsub!(old, new) } unless message.blank?
+    Social.tokens.each { |old, new| message.gsub!(old, new) } unless message.blank?
 
     message
   end
