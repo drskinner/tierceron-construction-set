@@ -1,9 +1,9 @@
 module ActionsHelper
   def build_action
-    controllers_with_actions = %w[users]
+    controllers_with_actions = %w[socials users]
 #
 # all the potential controllers:
-#    controllers_with_actions = %w[helps, items, mobiles, progs, rooms, skills, spells, socials, users, zones]
+#    controllers_with_actions = %w[helps items mobiles progs rooms skills spells socials users zones]
 
     if (controllers_with_actions.include?(controller_name))
       case action_name

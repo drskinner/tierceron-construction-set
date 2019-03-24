@@ -12,6 +12,11 @@
                 hint: I18n.t('activerecord.attributes.user.first_name_devise_hint') %>
     <%= f.input :last_name, as: :string %>
     <%= f.input :email, required: true, autofocus: true %>
+    <%= f.input :pronoun_class,
+                as: :select,
+                collection: User.pronoun_class_collection,
+                prompt: I18n.t('activerecord.attributes.user.pronoun_class_prompt'),
+                hint: I18n.t('activerecord.attributes.user.pronoun_class_hint') %>
     <%= f.input :password,
                 required: true,
                 hint: I18n.t('activerecord.attributes.user.password_hint') %>

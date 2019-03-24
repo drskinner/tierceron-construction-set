@@ -44,6 +44,10 @@
   padding-top: calc(0.375rem + 1px);
 }
 
+.simple_form div.social-full-parse {
+  margin-left: 5%;
+}
+
 .simple_form small.form-text {
   padding-left: 3px;
   font-style: italic;

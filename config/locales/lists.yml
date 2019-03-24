@@ -5,3 +5,21 @@ en:
       gsa: "System Admin"
       guest: "Guest"
       implementor: "Implementor"
+    user:
+      pronouns:
+        female: 
+          label: "Female"
+          object: "her"
+          possessive: "her"
+          subject: "she"
+        male:
+          label: "Male"
+          object: "him"
+          possessive: "his"
+          subject: "he"
+        neutral:
+          label: "Neutral"
+          object: "them"
+          possessive: "their"
+          subject: "they"
+

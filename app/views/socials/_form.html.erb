@@ -1,0 +1,29 @@
+<%= simple_form_for @social, wrapper: :horizontal_form do |f| %>
+  <div class="row">
+    <%= render partial: 'alerts/validation_errors', locals: { f: f } %>
+
+    <div class="col-md-9">
+      <fieldset>
+      <legend>Social Command</legend>
+        <%= f.input :name, as: :string %>
+        <%= f.input :char_no_arg, as: :string, hint: I18n.t('activerecord.attributes.social.char_no_arg_hint') %>
+        <%= f.input :others_no_arg, as: :string, hint: I18n.t('activerecord.attributes.social.others_no_arg_hint') %>
+        <%= f.input :char_obj, as: :string, hint: I18n.t('activerecord.attributes.social.char_obj_hint') %>
+        <%= f.input :others_obj, as: :string, hint: I18n.t('activerecord.attributes.social.others_obj_hint') %>
+        <%= f.input :char_found, as: :string, hint: I18n.t('activerecord.attributes.social.char_found_hint') %>
+        <%= f.input :others_found, as: :string, hint: I18n.t('activerecord.attributes.social.others_found_hint') %>
+        <%= f.input :vict_found, as: :string, hint: I18n.t('activerecord.attributes.social.vict_found_hint') %>
+        <%= f.input :char_auto, as: :string, hint: I18n.t('activerecord.attributes.social.char_auto_hint') %>
+        <%= f.input :others_auto, as: :string, hint: I18n.t('activerecord.attributes.social.others_auto_hint') %>
+      </fieldset>
+
+      <%= f.button :submit unless action_name == 'show' %>
+    </div>
+
+    <div class="col-md-3">
+      <%= render 'variables' %>
+    </div>
+  </div>
+<% end %>
+
+
