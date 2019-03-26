@@ -15,6 +15,20 @@ div#welcome {
   color: #8a6d3b;
 }
 
+#top-nav {
+  font-size: 150%;
+  color: #686868;
+  margin-bottom: 10px;
+}
+
+#top-nav .navbar-link {
+  color: #a8a8a8;
+}
+
+#top-nav .navbar-link:hover {
+  color: #28a745;
+}
+
 #title-bar {
   background: #686868;
   color: white;
