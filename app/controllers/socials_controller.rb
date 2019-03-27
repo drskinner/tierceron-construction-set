@@ -43,6 +43,17 @@ class SocialsController < ApplicationController
     redirect_to socials_path
   end
 
+  def import
+    if params[:social].blank?
+      flash[:error] = I18n.t('flash.error.upload_file_required')
+    else
+      count = SocialService.import(params[:social][:import_file].path)
+      flash[:success] = I18n.t('flash.success.socials_added', count: count)
+    end
+
+    redirect_to socials_path
+  end
+
   private
 
   def social_params

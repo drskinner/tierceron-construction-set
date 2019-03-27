@@ -1,0 +1,7 @@
+en:
+  flash:
+    error:
+      form_validation: "Please correct the following and resubmit:"
+      upload_file_required: "Please choose a file to upload."
+    success:
+      socials_added: "Added %{count} new socials from file."
