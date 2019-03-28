@@ -1,6 +1,7 @@
 class Social < ApplicationRecord
 
-  validates_presence_of :name, :char_no_arg
+  validates :name, presence: true, uniqueness: true
+  validates :char_no_arg, presence: true
 
   PARSABLE_FIELDS = %i[char_no_arg
                        others_no_arg
@@ -33,4 +34,5 @@ class Social < ApplicationRecord
 
     message
   end
+
 end

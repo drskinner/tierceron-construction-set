@@ -1,5 +1,7 @@
 en:
   button:
+    social:
+      import: "Import Socials"
     user:
       password_reset: "Send me reset password instructions"
       register: "Register"

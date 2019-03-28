@@ -1,6 +1,8 @@
 <%= simple_form_for @social, wrapper: :horizontal_form do |f| %>
   <div class="row">
-    <%= render partial: 'alerts/validation_errors', locals: { f: f } %>
+    <div class="col-md-12">
+      <%= render partial: 'alerts/validation_errors', locals: { f: f } %>
+    </div>
 
     <div class="col-md-9">
       <fieldset>

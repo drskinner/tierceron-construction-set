@@ -7,7 +7,9 @@ Rails.application.routes.draw do
     root to: 'devise/sessions#new'
   end
 
-  resources :socials
+  resources :socials do
+    post :import, on: :collection
+  end
 
   resources :users, path: 'profiles'
 end
