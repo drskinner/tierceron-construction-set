@@ -24,7 +24,7 @@ module SocialService
           count += 1
         end
       elsif line[0..3] == '#END'
-        break # make a return instead?
+        break
       else
         my_key = line[0..11]
         my_value = line[13..-3]
