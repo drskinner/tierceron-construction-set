@@ -20,6 +20,9 @@ gem 'bootstrap', '>= 4.3.1'
 gem 'jquery-rails'
 gem 'simple_form'
 
+gem 'kaminari'
+gem 'bootstrap4-kaminari-views'
+
 # Authentication and Authorization
 gem 'devise'
 

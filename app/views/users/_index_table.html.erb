@@ -1,10 +1,10 @@
-<div id="index_table">
+<div id="index-table">
 <% def can?(action, model)
     true
   end %>
 <table class=" table table-striped">
   <tr>
-    <th class="model_id">ID</th>
+    <th class="model-id">ID</th>
       <%#= sortable 'first_name', 'Name' %>
       <%#= sortable 'email' %>
       <%#= sortable 'role_id' %>
@@ -30,5 +30,7 @@
   <% end %>
 </table>
 
-  <%#= paginate @users, remote: true %>
+  <%= paginate @users, theme: 'twitter-bootstrap-4',
+                         pagination_class: 'pagination-md',
+                         nav_class: 'd-inline-b' %>
 </div>
