@@ -1,7 +1,7 @@
 class SocialsController < ApplicationController
 
   def index
-    @socials = Social.all
+    @socials = Social.all.page(params[:page])
   end
 
   def show
