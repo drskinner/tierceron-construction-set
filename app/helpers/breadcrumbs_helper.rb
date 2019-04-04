@@ -5,7 +5,7 @@ module BreadcrumbsHelper
       when 'registrations'
         if (action_name == 'index')
           crumbs << I18n.t('breadcrumb.users.index')
-        else
+        elsif User.current
           crumbs << link_to(I18n.t('breadcrumb.users.index'), users_path)
         end
 
