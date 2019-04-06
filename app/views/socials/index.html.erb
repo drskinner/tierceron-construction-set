@@ -6,6 +6,8 @@
   </div>
 
   <div class="col-md-3">
-    <%= render 'import' %>
+    <% if can? :import, Social %>
+      <%= render 'import' %>
+    <% end %>
   </div>
 </div>

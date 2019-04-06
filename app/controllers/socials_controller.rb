@@ -1,7 +1,8 @@
 class SocialsController < ApplicationController
+  load_and_authorize_resource
 
   def index
-    @socials = Social.all.page(params[:page])
+    @socials = Social.accessible_by(current_ability).page(params[:page])
   end
 
   def show

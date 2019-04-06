@@ -4,6 +4,15 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :set_current_user
 
+  rescue_from CanCan::AccessDenied do |exception|
+    respond_to do |format|
+      flash[:error] = exception.message
+      format.json { head :forbidden, content_type: 'text/html' }
+      format.html { redirect_to welcome_index_path }
+      format.js   { head :forbidden, content_type: 'text/html' }
+    end
+  end
+
   def set_current_user
     User.current = current_user
   end

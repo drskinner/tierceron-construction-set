@@ -18,7 +18,8 @@ en:
   page:
     action_title:
       edit: "Edit %{record}"
+      edit_command: "Edit command: %{record}"
       index: "Manage %{model}"
       new: "Create %{model}"
       show: "View %{record}"
-      show_social: "View command: %{record}"
+      show_command: "View command: %{record}"
