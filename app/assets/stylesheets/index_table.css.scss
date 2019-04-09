@@ -1,0 +1,29 @@
+th.index-header {
+  min-height: 24px;
+}
+
+th.model-id {
+  width: 10%;
+}
+
+th.actions {
+  width: 15%;
+}
+
+th.sortable a {
+  padding-right: 20px;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+th.sortable a.sortable {
+  background-image: url(image_path('sortable.png'));
+}
+
+th.sortable a.sorted-asc {
+  background-image: url(image_path('sorted_asc.png'));
+}
+
+th.sortable a.sorted-desc {
+  background-image: url(image_path('sorted_desc.png'));
+}
