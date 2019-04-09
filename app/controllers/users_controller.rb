@@ -5,8 +5,9 @@ class UsersController < ApplicationController
     sort = params[:sort] || :id
     direction = params[:direction] || :asc
 
+    # unsafe: .order("#{params[:sort]} #{params[:direction]}")
     @users = User.accessible_by(current_ability)
-                 .order(Arel.sql("#{params[:sort]} #{params[:direction]}"))
+                 .order(sort => direction)
                  .page(params[:page])
   end
 
