@@ -2,7 +2,12 @@ class UsersController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @users = User.accessible_by(current_ability).page(params[:page])
+    sort = params[:sort] || :id
+    direction = params[:direction] || :asc
+
+    @users = User.accessible_by(current_ability)
+                 .order(Arel.sql("#{params[:sort]} #{params[:direction]}"))
+                 .page(params[:page])
   end
 
   def show
