@@ -1,0 +1,5 @@
+en:
+  search:
+    by_role_id: "User Role"
+    name_contains: "Name Contains"
+    title: "Search Options"

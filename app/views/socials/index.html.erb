@@ -1,11 +1,12 @@
 <% content_for :title, I18n.t('page.action_title.index', model: 'Socials') %>
 
 <div class="row">
-  <div class="col-md-9">
+  <div class="col-lg-9">
     <%= render 'index_table' %>
   </div>
 
-  <div class="col-md-3">
+  <div class="col-lg-3">
+    <%= render 'search' %>
     <% if can? :import, Social %>
       <%= render 'import' %>
     <% end %>

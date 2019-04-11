@@ -1,5 +1,8 @@
 en:
   button:
+    search:
+      clear: "Clear Filters"
+      submit: "Search"
     social:
       import: "Import Socials"
     user:

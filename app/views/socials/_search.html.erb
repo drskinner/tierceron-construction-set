@@ -1,0 +1,17 @@
+<%= form_tag socials_path, method: 'get', class: 'search-form' do %>
+  <fieldset>
+    <legend>
+      <span><%= I18n.t('search.title') %></span>
+    </legend>
+    <div class="search-field-top">
+      <label><%= I18n.t('search.name_contains') %></label>
+      <%= text_field_tag :name_contains, 
+                         params['name_contains'],
+                         class: 'search-text' %>
+    </div>
+    <div class="search-buttons">
+      <%= submit_tag I18n.t('button.search.submit'), name: nil, class: 'btn btn-default' %>
+      <%= link_to I18n.t('button.search.clear'), socials_path, class: 'btn btn-clear' %>
+    </div>
+  </fieldset>
+<% end %>

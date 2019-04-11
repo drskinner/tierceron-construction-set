@@ -6,6 +6,7 @@ class SocialsController < ApplicationController
     direction = params[:direction] || :asc
 
     @socials = Social.accessible_by(current_ability)
+                     .search(params.slice(:name_contains))
                      .order(sort => direction)
                      .page(params[:page])
   end
