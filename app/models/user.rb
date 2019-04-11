@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  include Searchable
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -11,6 +13,9 @@ class User < ApplicationRecord
   validates :pronoun_class, presence: true
 
   after_initialize :set_default_role
+
+  scope :name_contains, ->(name) { where('first_name ILIKE ?', "%#{name}%") }
+  scope :by_role_id, ->(role_id) { where(role_id: role_id) }
 
   PRONOUN_CLASSES = %i[female male neutral]
 

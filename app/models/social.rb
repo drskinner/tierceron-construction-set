@@ -1,7 +1,10 @@
 class Social < ApplicationRecord
+  include Searchable
 
   validates :name, presence: true, uniqueness: true
   validates :char_no_arg, presence: true
+
+  scope :name_contains, ->(name) { where('name ILIKE ?', "%#{name}%") }
 
   PARSABLE_FIELDS = %i[char_no_arg
                        others_no_arg

@@ -23,3 +23,5 @@ en:
       new: "Create %{model}"
       show: "View %{record}"
       show_command: "View command: %{record}"
+  select:
+    role: "-- Select Role --"
