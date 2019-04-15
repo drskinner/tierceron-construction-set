@@ -5,8 +5,10 @@
     <legend><%= I18n.t('user.fieldset.profile') %></legend>
     <%= f.input :first_name, as: :string, hint: I18n.t('activerecord.attributes.user.first_name_hint') %>
     <%= f.input :last_name, as: :string %>
-    <%= f.input :email, as: :email %>
-    <%= f.input :role_id, as: (current_user.internal? ? :select : :show), collection: Role.role_collection(current_user) %>
+    <% if @user == User.current %>
+      <%= f.input :email, as: :email %>
+    <% end %>
+    <%= f.input :role_id, as: (current_user.super? ? :select : :show), collection: Role.role_collection(current_user) %>
     <%= f.input :pronoun_class,
                 as: :select,
                 collection: User.pronoun_class_collection,

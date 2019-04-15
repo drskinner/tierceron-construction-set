@@ -12,7 +12,10 @@
                 as: :string, 
                 hint: I18n.t('activerecord.attributes.user.first_name_devise_hint') %>
     <%= f.input :last_name, as: :string %>
-    <%= f.input :email, required: true, autofocus: true %>
+    <%= f.input :email, 
+                required: true, 
+                autofocus: true,
+                hint: I18n.t('activerecord.attributes.user.email_devise_hint') %>
     <%= f.input :pronoun_class,
                 as: :select,
                 collection: User.pronoun_class_collection,

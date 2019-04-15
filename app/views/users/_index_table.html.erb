@@ -4,7 +4,9 @@
   <tr>
     <th class="model-id">ID</th>
       <%= sortable 'first_name' %>
-      <%= sortable 'email' %>
+      <% if can?(:email, User) %>
+        <%= sortable 'email' %>
+      <% end %>
       <%= sortable 'role_id' %>
       <%= sortable 'updated_at' %>
     <th colspan="3" class="actions"></th>
@@ -14,7 +16,9 @@
     <tr>
       <td><%= user.id %></td>
       <td><%= user.first_name %></td>
-      <td><%= user.email %></td>
+      <% if can?(:email, User) %>
+        <td><%= user.email %></td>
+      <% end %>
       <td><%= user.role.to_s %></td>
       <td><%= user.updated_at %></td>
       <td><%= link_to 'View', user_path(user) %></td>

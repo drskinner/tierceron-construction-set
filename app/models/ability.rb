@@ -12,14 +12,16 @@ class Ability
     when 'implementor'
       can [:read, :update, :create], Social
       can :read, User
+      can :update, User, id: user.id
 
     when 'builder'
       can :read, Social
       can :read, User
+      can :update, User, id: user.id
 
     when 'guest'
       can :read, Social, id: 1..10
-      can [:read, :update], User, id: user.id
+      cannot :manage, User
     end
   end
 end
