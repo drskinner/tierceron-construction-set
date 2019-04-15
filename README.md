@@ -6,10 +6,10 @@ at the top to move around the site.
 Let's face it, SMAUG's built in On-Line Creation (OLC) was adequate for the 1990s, but it's never made for a great user experience. Offline
 tools like ORB never quite reached maturity and aren't without their shortcomings.The finished version of TCS will allow you to create and
 edit Rooms, Objects, Mobiles, and Zone metadata. There are multiple user roles in TCS: lower-level roles will only be allowed to edit VNUMs
-within their assigned range; higher-level roles will have broader access. The database is populated by importing SMAUG's text files via rake
-task, for example: rake db:import_objects[filename] will import the objects from the specified SMAUG area file.
+within their assigned range; higher-level roles will have broader access. The System Admin can poulate the database by importing SMAUG's text files via
+the admin interface; for example: an upload form on `mobiles#index` will import the mobiles from any Covenant MUD area file.
 
-You can also edit socials in TCS so you aren't stuck using the clumsy sedit command within the MUD.
+You can also edit socials in TCS so you aren't stuck using the clumsy `sedit` command within the MUD.
 
 Covenant MUD has fields that stock SMAUG does not, so TCS will not work for other SMAUG MUDs without some (admittedly minor) tweaking.
 
