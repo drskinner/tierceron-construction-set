@@ -8,7 +8,7 @@
     <% if @user == User.current %>
       <%= f.input :email, as: :email %>
     <% end %>
-    <%= f.input :role_id, as: (current_user.super? ? :select : :show), collection: Role.role_collection(current_user) %>
+    <%= f.input :role_id, as: (current_user.gsa? ? :select : :show), collection: Role.role_collection(current_user) %>
     <%= f.input :pronoun_class,
                 as: :select,
                 collection: User.pronoun_class_collection,

@@ -40,7 +40,7 @@ class User < ApplicationRecord
     role.name != 'guest'
   end
 
-  def super?
+  def gsa?
     role.name == 'gsa'
   end
 
