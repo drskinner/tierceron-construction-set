@@ -40,6 +40,10 @@ class User < ApplicationRecord
     role.name != 'guest'
   end
 
+  def gsa?
+    role.name == 'gsa'
+  end
+
   def name_display
     last_name.blank? ? first_name : "#{first_name} #{last_name}"
   end

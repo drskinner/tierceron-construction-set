@@ -64,11 +64,10 @@ class UsersController < ApplicationController
   end
 
   def update_user_params
-    params.require(:user).permit(:first_name,
-                                 :last_name,
-                                 :pronoun_class,
-                                 :role_id,
-                                 :email)
+    permitted = %i[first_name last_name pronoun_class email]
+    permitted << :role_id if current_user.gsa?
+
+    params.require(:user).permit(permitted)
   end
 
 end

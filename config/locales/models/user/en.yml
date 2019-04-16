@@ -3,6 +3,7 @@ en:
     attributes:
       user:
         email: "Email"
+        email_devise_hint: "Your email address will not be shown to other users."
         first_name: "First Name"
         first_name_devise_hint: "Your Immortal's name in the MUD; if you are not a member of the MUD, your real name is fine."
         first_name_hint: "The Immortal's name in the MUD, not their real name."
