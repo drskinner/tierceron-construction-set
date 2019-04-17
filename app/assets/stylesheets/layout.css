@@ -79,3 +79,8 @@ footer {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+div.social-export-link {
+  padding-left: 10px;
+  margin-bottom: 20px;
+}

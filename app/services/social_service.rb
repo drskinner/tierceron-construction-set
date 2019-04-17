@@ -36,4 +36,26 @@ module SocialService
 
     count
   end
+
+  def self.export(socials)
+    fields = Social::PARSABLE_FIELDS
+
+    [].tap { |file|
+      socials.each do |social|
+        file << '#SOCIAL'
+        file << "Name         #{social.name}~"
+        fields.each do |field|
+          value = social.send(field)
+          unless value.blank?          
+            label = '%-12.12s' % I18n.t("activerecord.attributes.social.#{field.to_s}_label")
+            file << "#{label} #{value}~"
+          end
+        end
+
+        file << 'End'
+        file << ''
+      end
+      file << "#END\n"
+    }.join("\n")
+  end
 end
