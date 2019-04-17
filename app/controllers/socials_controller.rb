@@ -9,6 +9,15 @@ class SocialsController < ApplicationController
                      .search(params.slice(:name_contains))
                      .order(sort => direction)
                      .page(params[:page])
+    respond_to do |format|        
+      format.html
+      format.smaug do
+        send_data SocialService.export(Social.accessible_by(current_ability)
+                                             .order(name: :asc)),
+                  type: 'text/plain; charset=UTF-8;',
+                  disposition: "attachment; filename=#{Time.now.strftime('%Y%m%d_%H%M%S')}_socials.dat"
+      end
+    end
   end
 
   def show

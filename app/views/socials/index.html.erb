@@ -7,6 +7,11 @@
 
   <div class="col-lg-3">
     <%= render 'search' %>
+    <% if can? :export, Social %>
+      <%= tag.div class: 'social-export-link' do %>
+        <%= link_to I18n.t('services.social.export'), socials_path(format: :smaug) %>
+      <% end %>
+    <% end %>
     <% if can? :import, Social %>
       <%= render 'import' %>
     <% end %>
