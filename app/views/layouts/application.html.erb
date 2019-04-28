@@ -13,7 +13,9 @@
     <div class="container">
       <header class="row">
         <div id="mudlogo" class="col-md-8">
-          <%= image_tag('mudlogo.png', class: 'img-fluid', alt: 'Covenant MUD') %>
+          <%= link_to welcome_index_path do %>
+            <%= image_tag('mudlogo.png', class: 'img-fluid', alt: 'Covenant MUD') %>
+          <% end %>
         </div>
         <div id="welcome" class="col-md-4">
           <% if user_signed_in? %>
