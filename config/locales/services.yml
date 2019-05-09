@@ -2,3 +2,4 @@ en:
   services:
     social:
       export: "Export Socials in SMAUG format"
+      import: "Import Socials"

@@ -177,4 +177,6 @@ div.search-buttons {
   background: #c9d0d6;
 }
 
-
+.import-controls {
+  padding-left: 10px;
+}
