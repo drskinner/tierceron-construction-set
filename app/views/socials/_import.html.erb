@@ -1,5 +1,12 @@
 <%= simple_form_for :social, html: { multipart: true }, :url => '/socials/import' do |f| %>
-  <%= f.input :import_file, as: :file, label: false %>
+  <fieldset>
+    <legend>
+      <span><%= I18n.t('services.social.import') %></span>
+    </legend>
+    <div class="import-controls">
+      <%= f.input :import_file, as: :file, label: false %>
 
-  <%= f.button :submit, I18n.t('button.social.import') %>
+      <%= f.button :submit, I18n.t('button.social.import') %>
+    </div>
+  </fieldset>
 <% end %>
