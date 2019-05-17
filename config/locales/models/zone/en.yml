@@ -16,3 +16,6 @@ en:
           attributes:
             owner_id:
               required: "must be an internal user"
+  zone:
+    fieldset:
+      metadata: "Zone Metadata"
