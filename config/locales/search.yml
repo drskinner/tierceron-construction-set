@@ -1,5 +1,6 @@
 en:
   search:
+    by_owner_id: "Owner"
     by_role_id: "User Role"
     name_contains: "Name Contains"
     title: "Search Options"

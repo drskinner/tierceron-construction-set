@@ -24,4 +24,5 @@ en:
       show: "View %{record}"
       show_command: "View command: %{record}"
   select:
+    owner: "-- Select Owner --"
     role: "-- Select Role --"

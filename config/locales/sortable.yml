@@ -8,3 +8,7 @@ en:
       first_name: "Name"
       role_id: "Role"
       updated_at: "Last Update"
+    zones:
+      min_vnum: "VNUM Range"
+      name: "Name"
+      owner_id: "Owner"      

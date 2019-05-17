@@ -16,6 +16,7 @@ class User < ApplicationRecord
 
   scope :name_contains, ->(name) { where('first_name ILIKE ?', "%#{name}%") }
   scope :by_role_id, ->(role_id) { where(role_id: role_id) }
+  scope :internal, -> { joins(:role).where.not('roles.name': 'guest') }
 
   PRONOUN_CLASSES = %i[female male neutral]
 
@@ -42,6 +43,10 @@ class User < ApplicationRecord
 
   def gsa?
     role.name == 'gsa'
+  end
+
+  def to_s
+    name_display
   end
 
   def name_display

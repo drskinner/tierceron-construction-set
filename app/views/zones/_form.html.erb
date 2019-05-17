@@ -1,0 +1,26 @@
+<%= simple_form_for @zone, wrapper: :horizontal_form do |f| %>
+  <div class="row">
+    <div class="col-md-12">
+      <%= render partial: 'alerts/validation_errors', locals: { f: f } %>
+    </div>
+
+    <div class="col-md-12">
+      <fieldset>
+      <legend>Zone Metadata</legend>
+        <%= f.input :name, as: :string %>
+        <%= f.input :filename, as: :string %>
+        <%= f.input :author, as: :string %>
+        <%= f.input :owner_id, 
+                    as: :select, 
+                    collection: User.internal,
+                    prompt: I18n.t('activerecord.attributes.zone.owner_id_prompt') %>
+        <%= f.input :min_vnum, as: :integer %>
+        <%= f.input :max_vnum, as: :integer %>
+      </fieldset>
+
+      <%= f.button :submit unless action_name == 'show' %>
+    </div>
+  </div>
+<% end %>
+
+
