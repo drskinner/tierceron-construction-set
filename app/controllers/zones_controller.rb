@@ -6,7 +6,7 @@ class ZonesController < ApplicationController
     direction = params[:direction] || :asc
 
     @zones = Zone.accessible_by(current_ability)
-                 .search(params.slice(:name_contains, :by_role_id))
+                 .search(params.slice(:name_contains, :by_owner_id))
                  .order(sort => direction)
                  .page(params[:page])
   end
