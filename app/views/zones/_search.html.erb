@@ -1,0 +1,24 @@
+<%= form_tag zones_path, method: 'get', class: 'search-form' do %>
+  <fieldset>
+    <legend>
+      <span><%= I18n.t('search.title') %></span>
+    </legend>
+    <div class="search-field-top">
+      <label><%= I18n.t('search.name_contains') %></label>
+      <%= text_field_tag :name_contains, 
+                         params['name_contains'],
+                         class: 'search-text' %>
+    </div>
+    <div class="search-field">
+      <label><%= I18n.t('search.by_owner_id') %></label>
+      <%= select_tag :by_owner_id, 
+                     options_for_select(User.internal.collect { |u| [u.to_s, u.id] }, params[:by_owner_id]),
+                     prompt: I18n.t('select.owner'),
+                     class: 'search-select' %>
+    </div>
+    <div class="search-buttons">
+      <%= submit_tag I18n.t('button.search.submit'), name: nil, class: 'btn btn-default' %>
+      <%= link_to I18n.t('button.search.clear'), zones_path, class: 'btn btn-clear' %>
+    </div>
+  </fieldset>
+<% end %>

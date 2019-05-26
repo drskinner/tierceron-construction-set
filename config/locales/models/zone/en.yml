@@ -1,0 +1,21 @@
+en:
+  activerecord:
+    attributes:
+      zone:
+        author: "Author"
+        filename: "Area Filename"
+        max_vnum: "Maximum VNUM"
+        min_vnum: "Minimum VNUM"
+        name: "Name"
+        owner: "Owner"
+        owner_id: "Owner"
+        owner_id_prompt: "-- Select Builder --"
+    errors:
+      models:
+        zone:
+          attributes:
+            owner_id:
+              required: "must be an internal user"
+  zone:
+    fieldset:
+      metadata: "Zone Metadata"

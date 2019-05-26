@@ -1,0 +1,26 @@
+<div id="index-table">
+
+  <table class=" table table-striped">
+    <tr>
+      <%= sortable 'name' %>
+      <%= sortable 'owner_id' %>
+      <%= sortable 'min_vnum' %>
+      <th colspan="3" class="actions"></th>
+    </tr>
+
+    <% @zones.each do |zone| %>
+      <tr>
+        <td><%= zone.name %></td>
+        <td><%= zone.owner_id_display %></td>
+        <td><%= zone.min_vnum %>&ndash;<%= zone.max_vnum %></td>
+        <td><%= link_to 'View', zone_path(zone) %></td>
+        <td><%= link_to 'Edit', edit_zone_path(zone) if can?(:edit, zone) %></td>
+        <td><%= link_to 'Delete', zone_path(zone), method: :delete, data: { confirm: 'Are you sure?' } if can?(:destroy, zone) %></td>
+      </tr>
+    <% end %>
+  </table>
+
+  <%= paginate @zones, theme: 'twitter-bootstrap-4',
+                       pagination_class: 'pagination-md',
+                       nav_class: 'd-inline-b' %>
+</div>
