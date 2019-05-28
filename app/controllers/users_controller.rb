@@ -31,16 +31,6 @@ class UsersController < ApplicationController
 
   end
 
-  def create
-    @user = User.new(create_user_params)
- 
-    if @user.save
-      redirect_to @user
-    else
-      render 'new'
-    end
-  end
-
   def edit
     @user = User.find(params[:id])
   end
