@@ -61,7 +61,7 @@ class User < ApplicationRecord
     role.to_s
   end
 
-def self.create_new_user(params)
-  @user = User.create!(params)
-end
+  def self.create_new_user(params)
+    @user = User.create!(params)
+  end
 end
