@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def create
+  def admin_create
     @user = User.new(create_user_params)
  
     if @user.save
@@ -54,13 +54,15 @@ class UsersController < ApplicationController
   private
 
   def create_user_params
-    params.require(:user).permit(:first_name,
-                                 :last_name,
-                                 :pronoun_class,
-                                 :role_id,
-                                 :email,
-                                 :password,
-                                 :password_confirmation)
+    if params[:user].present?
+      params.require(:user).permit(:first_name,
+                                   :last_name,
+                                   :pronoun_class,
+                                   :role_id,
+                                   :email,
+                                   :password,
+                                   :password_confirmation)
+    end
   end
 
   def update_user_params

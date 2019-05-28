@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   end
 
   resources :users, path: 'profiles'
+  match '/admin_create', to: 'users#admin_create', via: [:post, :get]
 
   resources :zones
 end
