@@ -1,11 +1,11 @@
-<%= simple_form_for @user, wrapper: :horizontal_form do |f| %>
+<%= simple_form_for @user, wrapper: :horizontal_form, url: form_path do |f| %>
   <%= render partial: 'alerts/validation_errors', locals: { f: f } %>
 
   <fieldset>
     <legend><%= I18n.t('user.fieldset.profile') %></legend>
     <%= f.input :first_name, as: :string, hint: I18n.t('activerecord.attributes.user.first_name_hint') %>
     <%= f.input :last_name, as: :string %>
-    <% if @user == User.current %>
+    <% if @user == User.current || %w[new admin_create].include?(action_name) %>
       <%= f.input :email, as: :email %>
     <% end %>
     <%= f.input :role_id, as: (current_user.gsa? ? :select : :show), collection: Role.role_collection(current_user) %>
@@ -16,7 +16,7 @@
                 include_blank: false %>
   </fieldset>
 
-  <% if %w(create new).include?(action_name) %>
+  <% if %w[new admin_create].include?(action_name) %>
     <fieldset>
       <legend><%= I18n.t('user.fieldset.password') %></legend>
       <%= f.input :password, as: :password, hint: I18n.t('activerecord.attributes.user.password_hint'), required: true %>
