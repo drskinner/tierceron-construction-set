@@ -64,17 +64,10 @@
       <footer class="row">
         <span>Covenant MUD Building Tools Copyright &copy; <%= Time.now.year %> Myles L. Skinner&mdash;All Rights Reserved.</span>
       </footer>
-    </div>
 
-    <%# if %w[new create edit update].include?(action_name) %>
-<% if false %>
-      <script>
-        $(document).ready(function() {
-          $('select.select2').select2();
-        });
-      </script>
-    <% end %>
+    </div>
   </body>
 
   <%= yield(:extra_js) %>
+
 </html>

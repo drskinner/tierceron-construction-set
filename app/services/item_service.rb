@@ -62,15 +62,6 @@ module ItemService
             end
           end
         end
-=begin
-        if line[0..9] == '#ENDOBJECT'
-          object_open = false
-          if @item.valid?
-            @item.save!
-            count += 1
-          end
-        end
-=end
       end
     end
 
