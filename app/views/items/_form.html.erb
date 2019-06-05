@@ -1,0 +1,73 @@
+<%= simple_form_for @item, html: { class: 'form-horizontal' }, wrapper: :horizontal_form do |f| %>
+  <%= render partial: 'alerts/validation_errors', locals: { f: f } %>
+
+  <fieldset>
+    <legend>Object Metadata</legend>
+    <%= f.input :vnum, as: :integer %>
+    <%= f.input :keywords, as: :string %>
+    <%= f.input :item_type, 
+                as: :select, 
+                collection: Item.item_type_collection, 
+                input_html: { class: 'select2' } %>
+  </fieldset>
+
+  <fieldset>
+    <legend>Text Fields</legend>
+    <%= f.input :short_desc,
+                as: :string,
+                hint: I18n.t('activerecord.attributes.item.short_desc_hint') %>
+    <%= f.input :long_desc,
+                as: :string,
+                hint: I18n.t('activerecord.attributes.item.long_desc_hint') %>
+    <%= f.input :full_desc, 
+                as: :text, 
+                hint: I18n.t('activerecord.attributes.item.full_desc_hint'),
+                input_html: { rows: 4 } %>
+  </fieldset>
+
+  <fieldset>
+    <legend>Flags</legend>
+    <%= f.input :flags, 
+                as: :select, 
+                collection: Item.object_flag_collection,
+                input_html: { multiple: true, class: 'select2' } %>
+    <%= f.input :wear_flags, 
+                as: :select,
+                collection: Item.wear_flag_collection,
+                input_html: { multiple: true, class: 'select2' } %>
+  </fieldset>
+
+  <div class="row">
+    <div id="item-values" class="col-md-6">
+      <fieldset>
+        <legend>Item Values</legend>
+          <% (0..5).each do |index| %>
+            <%= f.input "value#{index}".to_sym %>
+          <% end %>
+      </fieldset>
+    </div>
+
+    <div id="numeric-values" class="col-md-6">
+      <fieldset>
+        <legend>Numeric Values</legend>
+        <%= f.input :weight %>
+        <%= f.input :cost %>
+        <%= f.input :rent %>
+        <%= f.input :level %>
+        <%= f.input :layers %>
+      </fieldset>
+    </div>
+  </div>
+
+  <%= f.button :submit unless action_name == 'show' %>
+
+<% end %>
+
+<% content_for :extra_js do %>
+  <script>
+    $(document).ready(function() {
+      $('select.select2').select2();
+    });
+  </script>
+<% end %>
+

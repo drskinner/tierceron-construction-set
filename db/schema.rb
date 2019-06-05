@@ -10,10 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_10_122217) do
+ActiveRecord::Schema.define(version: 2019_05_28_234736) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "items", force: :cascade do |t|
+    t.integer "vnum", null: false
+    t.string "keywords", null: false
+    t.string "item_type", null: false
+    t.string "short_desc", null: false
+    t.string "long_desc", null: false
+    t.text "full_desc"
+    t.string "action_desc"
+    t.text "flags", default: [], array: true
+    t.text "wear_flags", default: [], array: true
+    t.text "magic_flags", default: [], array: true
+    t.integer "value0", default: 0
+    t.integer "value1", default: 0
+    t.integer "value2", default: 0
+    t.integer "value3", default: 0
+    t.integer "value4", default: 0
+    t.integer "value5", default: 0
+    t.integer "weight", default: 0
+    t.integer "cost", default: 0
+    t.integer "rent", default: 0
+    t.integer "level", default: 0
+    t.integer "layers", default: 0
+    t.string "spells", default: [], array: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["vnum"], name: "index_items_on_vnum", unique: true
+  end
 
   create_table "roles", force: :cascade do |t|
     t.string "name", null: false

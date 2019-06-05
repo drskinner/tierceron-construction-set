@@ -7,12 +7,16 @@ Rails.application.routes.draw do
     root to: 'devise/sessions#new'
   end
 
-  resources :socials do
+  resources :users, path: 'profiles'
+  match '/admin_create', to: 'users#admin_create', via: [:post, :get]
+
+  resources :items do
     post :import, on: :collection
   end
 
-  resources :users, path: 'profiles'
-  match '/admin_create', to: 'users#admin_create', via: [:post, :get]
+  resources :socials do
+    post :import, on: :collection
+  end
 
   resources :zones
 end

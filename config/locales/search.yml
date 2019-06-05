@@ -1,6 +1,9 @@
 en:
   search:
+    by_item_type: "Type"
     by_owner_id: "Owner"
     by_role_id: "User Role"
+    by_zone: "Zone"
+    keywords_contain: "Keywords Contain"
     name_contains: "Name Contains"
     title: "Search Options"

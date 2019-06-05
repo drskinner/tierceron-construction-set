@@ -1,0 +1,21 @@
+en:
+  activerecord:
+    attributes:
+      item:
+        flags: "Object Flags"
+        full_desc: "Full Description"
+        full_desc_hint: "A short paragraph that describes what you see when you look at the object."
+        item_type: "Item Type"
+        keywords: "Keywords"
+        long_desc: "Long Description"
+        long_desc_hint: "A full sentence describing the object as it appears in a room or on the ground."
+        short_desc: "Short Description"
+        short_desc_hint: "How the item appears in your inventory. Usually a short phrase starting with 'a', 'an', or 'the'."
+        vnum: "VNUM"
+        wear_flags: "Wear Flags"
+    errors:
+      models:
+        item:
+          attributes:
+            vnum:
+              inclusion: "is not in your assigned range"

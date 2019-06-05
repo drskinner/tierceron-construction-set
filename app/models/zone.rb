@@ -8,6 +8,10 @@ class Zone < ApplicationRecord
   scope :name_contains, ->(name) { where('name ILIKE ?', "%#{name}%") }
   scope :by_owner_id, ->(owner_id) { where(owner_id: owner_id) }
 
+  def self.zone_collection
+    Zone.all.map { |z| [z.name, z.id] }.sort
+  end
+
   def owner_id_display
     owner.name_display
   end

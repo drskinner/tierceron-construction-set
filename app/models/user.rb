@@ -7,6 +7,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   belongs_to :role
+  has_many :zones, foreign_key: :owner_id
 
   validates :first_name, presence: true
   validates :role_id, presence: true
@@ -45,6 +46,10 @@ class User < ApplicationRecord
     role.name == 'gsa'
   end
 
+  def builder?
+    role.name == 'builder'
+  end
+
   def to_s
     name_display
   end
@@ -59,6 +64,10 @@ class User < ApplicationRecord
 
   def role_id_display
     role.to_s
+  end
+
+  def owned_vnums
+    zones.map { |z| (z.min_vnum..z.max_vnum).to_a }.flatten
   end
 
   def self.create_new_user(params)

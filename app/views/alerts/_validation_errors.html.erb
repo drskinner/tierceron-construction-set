@@ -1,7 +1,7 @@
 <% unless f.object.errors.messages.blank? %>
   <div class="alert alert-error">
     <div class="validation-error-header"><b><%= I18n.t('flash.error.form_validation') %></b></div>
-    <% f.object.errors.each do |e| %>
+    <% f.object.errors.messages.keys.each do |e| %>
       <div class="validation-error">
         <%= I18n.t("activerecord.attributes.#{controller_name.classify.underscore}.#{e.to_s}") %>: 
         <%= f.object.errors.messages[e].join(' and ') %>

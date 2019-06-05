@@ -1,0 +1,28 @@
+<div id="index-table">
+
+<table class="table table-sm table-striped">
+  <tr class="index-header">
+    <%= sortable 'vnum', 'VNUM' %>
+    <th>Keywords</th>
+    <th>Short Description</th>
+    <%= sortable 'item_type', 'Type' %>
+    <th colspan="3" class="actions"></th>
+  </tr>
+
+  <% @items.each do |item| %>
+    <tr>
+      <td><%= item.vnum %></td>
+      <td><%= item.keywords %></td>
+      <td><%= item.short_desc %></td>
+      <td><%= item.item_type %></td>
+      <td><%= link_to 'View', item_path(item) %></td>
+      <td><%= link_to 'Edit', edit_item_path(item) if can?(:edit, item) %></td>
+      <td><%= link_to 'Delete', item_path(item), method: :delete, data: { confirm: 'Are you sure?' } if can?(:destroy, item) %></td>
+    </tr>
+  <% end %>
+</table>
+
+  <%= paginate @items, theme: 'twitter-bootstrap-4',
+                       pagination_class: 'pagination-md',
+                       nav_class: 'd-inline-b' %>
+</div>

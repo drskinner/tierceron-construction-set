@@ -1,0 +1,12 @@
+<%= simple_form_for :item, html: { multipart: true }, :url => '/items/import' do |f| %>
+  <fieldset>
+    <legend>
+      <span><%= I18n.t('services.item.import') %></span>
+    </legend>
+    <div class="import-controls">
+      <%= f.input :import_file, as: :file, label: false %>
+
+      <%= f.button :submit, I18n.t('button.item.import') %>
+    </div>
+  </fieldset>
+<% end %>
