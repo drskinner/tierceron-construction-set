@@ -1,5 +1,7 @@
 en:
   button:
+    item:
+      import: "Import Objects"
     search:
       clear: "Clear Filters"
       submit: "Search"

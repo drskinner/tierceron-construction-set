@@ -3,5 +3,6 @@ en:
     error:
       form_validation: "Please correct the following and resubmit:"
       upload_file_required: "Please choose a file to upload."
-    success:
+    success:      
+      items_added: "Added %{count} new objects from file."
       socials_added: "Added %{count} new socials from file."

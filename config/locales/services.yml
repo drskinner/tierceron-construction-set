@@ -1,5 +1,7 @@
 en:
   services:
+    item:
+      import: "Import Objects"
     social:
       export: "Export Socials in SMAUG format"
       import: "Import Socials"

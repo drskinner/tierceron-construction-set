@@ -1,5 +1,8 @@
 en:
   sortable:
+    items:
+      item_type: "Type"
+      vnum: "VNUM"
     socials:
       char_no_arg: "Sample"
       name: "Name"

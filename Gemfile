@@ -19,6 +19,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'bootstrap', '>= 4.3.1'
 gem 'jquery-rails'
 gem 'simple_form'
+gem 'select2-rails'
 
 gem 'kaminari'
 gem 'bootstrap4-kaminari-views'
