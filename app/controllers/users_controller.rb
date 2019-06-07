@@ -8,8 +8,10 @@ class UsersController < ApplicationController
     # unsafe: .order("#{params[:sort]} #{params[:direction]}")
     @users = User.accessible_by(current_ability)
                  .search(params.slice(:name_contains, :by_role_id))
-                 .order(sort => direction)
-                 .page(params[:page])
+    @full_count = @users.count
+
+    @users = @users.order(sort => direction)
+                   .page(params[:page])
   end
 
   def show

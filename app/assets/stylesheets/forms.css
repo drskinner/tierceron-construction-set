@@ -98,6 +98,10 @@
   margin: 0px 0px 10px 20px;
 }
 
+.search-form {
+  margin-top: 20px;
+}
+
 .search-form fieldset {
   background: #f4f4f4;
   padding-top: 20px;

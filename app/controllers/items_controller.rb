@@ -7,8 +7,10 @@ class ItemsController < ApplicationController
 
     @items = Item.accessible_by(current_ability)
                  .search(params.slice(:by_item_type, :by_zone_id, :keywords_contain))
-                 .order(sort => direction)
-                 .page(params[:page])
+    @full_count = @items.count
+
+    @items = @items.order(sort => direction)
+                   .page(params[:page])
   end
 
   def new

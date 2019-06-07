@@ -7,8 +7,10 @@ class ZonesController < ApplicationController
 
     @zones = Zone.accessible_by(current_ability)
                  .search(params.slice(:name_contains, :by_owner_id))
-                 .order(sort => direction)
-                 .page(params[:page])
+    @full_count = @zones.count
+
+    @zones = @zones.order(sort => direction)
+                   .page(params[:page])
   end
 
   def show

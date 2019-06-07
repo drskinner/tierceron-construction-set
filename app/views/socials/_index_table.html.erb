@@ -1,25 +1,27 @@
 <div id="index-table">
+  <div class="pagination-info">
+    <%= pagination_info(page: params[:page], page_count: @socials.count, full_count: @full_count) %>
+  </div>
 
-<table class="table table-sm table-striped">
-  <tr class="index-header">
-    <th class="model-id">ID</th>
-    <%= sortable 'name' %>
-    <%= sortable 'char_no_arg' %>
-    <th colspan="3" class="actions"></th>
-  </tr>
+  <table class="table table-sm table-striped">
+    <tr class="index-header">
+      <th class="model-id">ID</th>
+      <%= sortable 'name' %>
+      <%= sortable 'char_no_arg' %>
+      <th colspan="3" class="actions"></th>
+    </tr>
 
-  <% @socials.each do |social| %>
-    <tr>
-      <td><%= social.id %></td>
-      <td><%= social.name %></td>
-      <td><%= social.char_no_arg %></td>
-      <td><%= link_to 'View', social_path(social) %></td>
-      <td><%= link_to 'Edit', edit_social_path(social) if can?(:edit, social) %></td>
-      <td><%= link_to 'Delete', social_path(social), method: :delete, data: { confirm: 'Are you sure?' } if can?(:destroy, social) %></td>
-    </tr>
-    </tr>
-  <% end %>
-</table>
+    <% @socials.each do |social| %>
+      <tr>
+        <td><%= social.id %></td>
+        <td><%= social.name %></td>
+        <td><%= social.char_no_arg %></td>
+        <td><%= link_to 'View', social_path(social) %></td>
+        <td><%= link_to 'Edit', edit_social_path(social) if can?(:edit, social) %></td>
+        <td><%= link_to 'Delete', social_path(social), method: :delete, data: { confirm: 'Are you sure?' } if can?(:destroy, social) %></td>
+      </tr>
+    <% end %>
+  </table>
 
   <%= paginate @socials, theme: 'twitter-bootstrap-4',
                          pagination_class: 'pagination-md',

@@ -7,8 +7,11 @@ class SocialsController < ApplicationController
 
     @socials = Social.accessible_by(current_ability)
                      .search(params.slice(:name_contains))
-                     .order(sort => direction)
-                     .page(params[:page])
+    @full_count = @socials.count
+
+    @socials = @socials.order(sort => direction)
+                       .page(params[:page])
+
     respond_to do |format|        
       format.html
       format.smaug do

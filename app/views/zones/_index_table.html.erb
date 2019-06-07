@@ -1,4 +1,7 @@
 <div id="index-table">
+  <div class="pagination-info">
+    <%= pagination_info(page: params[:page], page_count: @zones.count, full_count: @full_count) %>
+  </div>
 
   <table class=" table table-striped">
     <tr>
