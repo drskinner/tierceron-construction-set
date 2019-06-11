@@ -27,3 +27,9 @@ th.sortable a.sorted-asc {
 th.sortable a.sorted-desc {
   background-image: url(image_path('sorted_desc.png'));
 }
+
+.pagination-info {
+  text-align: right;
+  font-size: 85%;
+  min-height: 20px;
+}

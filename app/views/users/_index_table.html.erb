@@ -1,32 +1,35 @@
 <div id="index-table">
+  <div class="pagination-info">
+    <%= pagination_info(page: params[:page], page_count: @users.count, full_count: @full_count) %>
+  </div>
 
-<table class=" table table-striped">
-  <tr>
-    <th class="model-id">ID</th>
-      <%= sortable 'first_name' %>
-      <% if can?(:email, User) %>
-        <%= sortable 'email' %>
-      <% end %>
-      <%= sortable 'role_id' %>
-      <%= sortable 'updated_at' %>
-    <th colspan="3" class="actions"></th>
-  </tr>
-
-  <% @users.each do |user| %>
+  <table class=" table table-striped">
     <tr>
-      <td><%= user.id %></td>
-      <td><%= user.first_name %></td>
-      <% if can?(:email, User) %>
-        <td><%= user.email %></td>
-      <% end %>
-      <td><%= user.role.to_s %></td>
-      <td><%= user.updated_at %></td>
-      <td><%= link_to 'View', user_path(user) %></td>
-      <td><%= link_to 'Edit', edit_user_path(user) if can?(:edit, user) %></td>
-      <td><%= link_to 'Delete', user_path(user), method: :delete, data: { confirm: 'Are you sure?' } if can?(:destroy, user) %></td>
+      <th class="model-id">ID</th>
+        <%= sortable 'first_name' %>
+        <% if can?(:email, User) %>
+          <%= sortable 'email' %>
+        <% end %>
+        <%= sortable 'role_id' %>
+        <%= sortable 'updated_at' %>
+      <th colspan="3" class="actions"></th>
     </tr>
-  <% end %>
-</table>
+
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= user.first_name %></td>
+        <% if can?(:email, User) %>
+          <td><%= user.email %></td>
+        <% end %>
+        <td><%= user.role.to_s %></td>
+        <td><%= user.updated_at %></td>
+        <td><%= link_to 'View', user_path(user) %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) if can?(:edit, user) %></td>
+        <td><%= link_to 'Delete', user_path(user), method: :delete, data: { confirm: 'Are you sure?' } if can?(:destroy, user) %></td>
+      </tr>
+    <% end %>
+  </table>
 
   <%= paginate @users, theme: 'twitter-bootstrap-4',
                          pagination_class: 'pagination-md',
