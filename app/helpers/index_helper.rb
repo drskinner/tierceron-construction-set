@@ -19,7 +19,7 @@ module IndexHelper
   end
 
   def pagination_info(page:, page_count:, full_count:)
-    return 'No records' if full_count.zero?
+    return 'No records.' if full_count.zero?
 
     page ||= 1
     my_start = (page.to_i - 1) * 20 + 1
