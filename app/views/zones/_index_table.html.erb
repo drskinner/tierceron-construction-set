@@ -8,7 +8,9 @@
       <%= sortable 'name' %>
       <%= sortable 'owner_id' %>
       <%= sortable 'min_vnum' %>
-      <th colspan="3" class="actions"></th>
+      <th class="action"></th>
+      <%= tag.th class: 'action' if can? :update, Zone %>
+      <%= tag.th class: 'action' if can? :destroy, Zone %>
     </tr>
 
     <% @zones.each do |zone| %>
@@ -16,9 +18,27 @@
         <td><%= zone.name %></td>
         <td><%= zone.owner_id_display %></td>
         <td><%= zone.min_vnum %>&ndash;<%= zone.max_vnum %></td>
-        <td><%= link_to 'View', zone_path(zone) %></td>
-        <td><%= link_to 'Edit', edit_zone_path(zone) if can?(:edit, zone) %></td>
-        <td><%= link_to 'Delete', zone_path(zone), method: :delete, data: { confirm: 'Are you sure?' } if can?(:destroy, zone) %></td>
+        <td class="action">
+          <%= link_to svg('view'),
+                      zone_path(zone),
+                      title: I18n.t('index_table.view') %>
+        </td>
+        <% if can? :update, Zone %>
+          <%= tag.td class: 'action' do %>
+            <%= link_to svg('edit'),
+                        edit_zone_path(zone),
+                        title: I18n.t('index_table.edit') %>
+          <% end %>
+        <% end %>
+        <% if can? :destroy, Zone %>
+          <%= tag.td class: 'action' do %>
+            <%= link_to svg('delete'),
+                        zone_path(zone),
+                        title: I18n.t('index_table.delete'),
+                        method: :delete,
+                        data: { confirm: I18n.t('index_table.confirm') } %>
+          <% end %>
+        <% end %>
       </tr>
     <% end %>
   </table>

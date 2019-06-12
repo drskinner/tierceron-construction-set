@@ -9,7 +9,9 @@
       <th><%= I18n.t('activerecord.attributes.item.keywords') %></th>
       <th><%= I18n.t('activerecord.attributes.item.short_desc') %></th>
       <%= sortable 'item_type' %>
-      <th colspan="3" class="actions"></th>
+      <th class="action"></th>
+      <%= tag.th class: 'action' if can? :update, Item %>
+      <%= tag.th class: 'action' if can? :destroy, Item %>
     </tr>
 
     <% @items.each do |item| %>
@@ -18,9 +20,27 @@
         <td><%= item.keywords %></td>
         <td><%= item.short_desc %></td>
         <td><%= item.item_type %></td>
-        <td><%= link_to 'View', item_path(item) %></td>
-        <td><%= link_to 'Edit', edit_item_path(item) if can?(:edit, item) %></td>
-        <td><%= link_to 'Delete', item_path(item), method: :delete, data: { confirm: 'Are you sure?' } if can?(:destroy, item) %></td>
+        <td class="action">
+          <%= link_to svg('view'),
+                      item_path(item),
+                      title: I18n.t('index_table.view') %>
+        </td>
+        <% if can? :update, Item %>
+          <%= tag.td class: 'action' do %>
+            <%= link_to svg('edit'),
+                        edit_item_path(item),
+                        title: I18n.t('index_table.edit') %>
+          <% end %>
+        <% end %>
+        <% if can? :destroy, Item %>
+          <%= tag.td class: 'action' do %>
+            <%= link_to svg('delete'),
+                        item_path(item),
+                        title: I18n.t('index_table.delete'),
+                        method: :delete,
+                        data: { confirm: I18n.t('index_table.confirm') } %>
+          <% end %>
+        <% end %>
       </tr>
     <% end %>
   </table>
