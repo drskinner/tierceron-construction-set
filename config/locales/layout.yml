@@ -13,6 +13,11 @@ en:
     users:
       index: "Users"
       new: "New User"
+  index_table:
+    confirm: "Are you sure?"
+    delete: "Delete"
+    edit: "Edit"
+    view: "View"
   messages:
     no_data: "(No Data)"
   page:

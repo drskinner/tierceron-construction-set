@@ -25,4 +25,10 @@ module IndexHelper
     my_start = (page.to_i - 1) * 20 + 1
     raw "Displaying #{my_start}&ndash;#{my_start + page_count - 1} of #{full_count} records."
   end
+
+  def svg(name)
+    file_path = "#{Rails.root}/app/assets/images/#{name}.svg"
+    return File.read(file_path).html_safe if File.exists?(file_path)
+    '(not found)'
+  end
 end

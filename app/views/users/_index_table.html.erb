@@ -12,7 +12,9 @@
         <% end %>
         <%= sortable 'role_id' %>
         <%= sortable 'updated_at' %>
-      <th colspan="3" class="actions"></th>
+      <th class="action"></th>
+      <%= tag.th class: 'action' if can? :update, User %>
+      <%= tag.th class: 'action' if can? :destroy, User %>
     </tr>
 
     <% @users.each do |user| %>
@@ -24,9 +26,27 @@
         <% end %>
         <td><%= user.role.to_s %></td>
         <td><%= user.updated_at %></td>
-        <td><%= link_to 'View', user_path(user) %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) if can?(:edit, user) %></td>
-        <td><%= link_to 'Delete', user_path(user), method: :delete, data: { confirm: 'Are you sure?' } if can?(:destroy, user) %></td>
+        <td class="action">
+          <%= link_to svg('view'),
+                      user_path(user),
+                      title: I18n.t('index_table.view') %>
+        </td>
+        <% if can? :update, User %>
+          <%= tag.td class: 'action' do %>
+            <%= link_to svg('edit'),
+                        edit_user_path(user),
+                        title: I18n.t('index_table.edit') %>
+          <% end %>
+        <% end %>
+        <% if can? :destroy, User %>
+          <%= tag.td class: 'action' do %>
+            <%= link_to svg('delete'),
+                        user_path(user),
+                        title: I18n.t('index_table.delete'),
+                        method: :delete,
+                        data: { confirm: I18n.t('index_table.confirm') } %>
+          <% end %>
+        <% end %>
       </tr>
     <% end %>
   </table>

@@ -84,3 +84,8 @@ div.social-export-link {
   padding-left: 10px;
   margin-bottom: 20px;
 }
+
+.icon {
+  height: 16px;
+  fill: currentColor;
+}
