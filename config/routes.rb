@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   resources :items do
     post :import, on: :collection
+    get :value_labels, on: :collection
   end
 
   resources :socials do

@@ -35,6 +35,40 @@ en:
         organic: "Organic"
         poisoned: "Poisoned"
         prototype: "Prototype"
+      value0:
+        armor: "Current Armor Class"
+        container: "Capacity (pounds)"
+        drinkcon: "Capacity (ounces)"
+        food: "Fill Value (ticks)"
+        furniture: "Stand Bitvector"
+        shelf: "Capacity (pounds)"
+        weapon: "Weapon Condition"
+      value1:
+        armor: "Original Armor Class"
+        drinkcon: "Container Flags"
+        food: "Quantity (ounces)"
+        furniture: "Sit Bitvector"
+        shelf: "Container Flags"
+        weapon: "Number of Dice"
+      value2:
+        container: "Key VNUM if lockable"
+        drinkcon: "Liquid Type"
+        furniture: "Rest Bitvector"
+        light: "Duration (ticks)"
+        shelf: "Key VNUM if lockable"
+        weapon: "Size of Dice"
+      value3:
+        container: "Container Condition"
+        drinkcon: "Poison? (-1 = yes)"
+        furniture: "Sleep Bitvector"
+        shelf: "Shelf Condition"
+        weapon: "Weapon Type"
+      value4:
+        container: "Suppress? (0 = no)"
+        furniture: "Default Preposition"
+        shelf: "Preposition for 'look'"
+      value5:
+        furniture: "Capacity (people)"
       wear_flags:
         _dual_: "Dual Wield"
         about: "About Body"

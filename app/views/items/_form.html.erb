@@ -42,7 +42,7 @@
       <fieldset>
         <legend>Item Values</legend>
           <% (0..5).each do |index| %>
-            <%= f.input "value#{index}".to_sym %>
+            <%= f.input "value#{index}".to_sym, wrapper: :small_number %>
           <% end %>
       </fieldset>
     </div>
@@ -69,5 +69,25 @@
       $('select.select2').select2();
     });
   </script>
-<% end %>
 
+  <script>
+    $(document).on("change", "#item_item_type", function(){
+      let itemType = $(this).val();
+
+      $.ajax({
+        url: "/items/value_labels",
+        method: "GET",
+        dataType: "json",
+        data: {item_type: itemType},
+        error: function (xhr, status, error) {
+          console.error('AJAX Error: ' + status + error);
+        },
+        success: function (response) {
+          response.labels.forEach(function(label, index) {
+            $(`label[for='item_value${index}']`).html(label);
+          });
+        }
+      });
+    });
+  </script>
+<% end %>
