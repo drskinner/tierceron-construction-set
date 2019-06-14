@@ -67,7 +67,7 @@ class ItemsController < ApplicationController
     if request.xhr?
       respond_to do |format|
         format.json {
-          render json: {labels: ItemService.value_labels(params[:item_type])}
+          render json: { labels: ItemService.value_labels(params[:item_type]) }
         }
       end
     end

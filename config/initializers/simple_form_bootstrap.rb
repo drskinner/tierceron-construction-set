@@ -240,7 +240,7 @@ SimpleForm.setup do |config|
     end
   end
 
-  config.wrappers :small_number, tag: 'div', class: 'form-group row', error_class: 'form-group-invalid', valid_class: 'form-group-valid' do |b|
+  config.wrappers :small_field, tag: 'div', class: 'form-group row', error_class: 'form-group-invalid', valid_class: 'form-group-valid' do |b|
     b.use :html5
     b.use :placeholder
     b.optional :min_max
