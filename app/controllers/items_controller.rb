@@ -63,6 +63,16 @@ class ItemsController < ApplicationController
     redirect_to items_path
   end
 
+  def value_labels
+    if request.xhr?
+      respond_to do |format|
+        format.json {
+          render json: { labels: ItemService.value_labels(params[:item_type]) }
+        }
+      end
+    end
+  end
+
   private
 
   def item_params

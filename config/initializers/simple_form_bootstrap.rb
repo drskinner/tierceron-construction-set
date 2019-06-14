@@ -240,6 +240,18 @@ SimpleForm.setup do |config|
     end
   end
 
+  config.wrappers :small_field, tag: 'div', class: 'form-group row', error_class: 'form-group-invalid', valid_class: 'form-group-valid' do |b|
+    b.use :html5
+    b.use :placeholder
+    b.optional :min_max
+    b.optional :readonly
+    b.use :label, class: 'col-sm-6 col-form-label'
+    b.wrapper :grid_wrapper, tag: 'div', class: 'col-sm-6 pl-2' do |ba|
+      ba.use :input, class: 'form-control', error_class: 'is-invalid', valid_class: 'is-valid'
+      ba.use :full_error, wrap_with: { tag: 'div', class: 'invalid-feedback' }
+      ba.use :hint, wrap_with: { tag: 'small', class: 'form-text text-muted' }
+    end
+  end
 
   # inline forms
   #

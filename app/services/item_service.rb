@@ -67,4 +67,19 @@ module ItemService
 
     count
   end
+
+  def self.value_label(item_type, index)
+    return "Value#{index}" if item_type.blank?
+
+    label = I18n.t("lists.item.value#{index}.#{item_type}")
+    label.include?('translation missing') ? 'not used' : label
+  end
+
+  def self.value_labels(item_type)
+    [].tap do |labels|
+      (0..5).each do |index|
+        labels << self.value_label(item_type, index)
+      end
+    end
+  end
 end
