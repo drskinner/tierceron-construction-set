@@ -1,0 +1,24 @@
+<%= f.input :value0,
+            label: ItemService.value_label('shelf', 0),
+            wrapper: :small_field %>
+<%= f.input :value1,
+            as: :select,
+            collection: List::CONTAINER_FLAGS.invert,
+            label: ItemService.value_label('shelf', 1),
+            wrapper: :small_field 
+            selected: List.bitvector_to_bits(@item.value1),
+            input_html: { multiple: true, class: 'select2' } %>
+<%= f.input :value2,
+            label: ItemService.value_label('shelf', 2),
+            wrapper: :small_field %>
+<%= f.input :value3,
+            label: ItemService.value_label('shelf', 3),
+            wrapper: :small_field %>
+<%= f.input :value4,
+            label: ItemService.value_label('shelf', 4),
+            collection: List::PREPOSITIONS_SHELF.invert,
+            wrapper: :small_field,
+            input_html: { class: 'select2' } %>
+<%= f.input :value5,
+            label: ItemService.value_label('shelf', 5),
+            wrapper: :small_field %>

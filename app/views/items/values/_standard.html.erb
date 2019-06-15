@@ -1,0 +1,6 @@
+<% (0..5).each do |index| %>
+  <%= f.input "value#{index}".to_sym,
+              label: ItemService.value_label(@item.item_type, index),
+              wrapper: :small_field %>
+<% end %>
+

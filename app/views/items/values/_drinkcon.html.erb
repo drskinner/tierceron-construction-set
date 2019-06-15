@@ -1,0 +1,21 @@
+<%= f.input :value0,
+            label: ItemService.value_label('drinkcon', 0),
+            wrapper: :small_field %>
+<%= f.input :value1,
+            label: ItemService.value_label('drinkcon', 1),
+            wrapper: :small_field %>
+<%= f.input :value2,
+            as: :select,
+            collection: List::LIQUID_TYPES.invert,
+            label: ItemService.value_label('drinkcon', 2),
+            wrapper: :small_field,
+            input_html: { class: 'select2' } %>
+<%= f.input :value3,
+            label: ItemService.value_label('drinkcon', 3),
+            wrapper: :small_field %>
+<%= f.input :value4,
+            label: ItemService.value_label('drinkcon', 4),
+            wrapper: :small_field %>
+<%= f.input :value5,
+            label: ItemService.value_label('drinkcon', 5),
+            wrapper: :small_field %>

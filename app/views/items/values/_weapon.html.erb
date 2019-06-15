@@ -1,0 +1,21 @@
+<%= f.input :value0,
+            label: ItemService.value_label('weapon', 0),
+            wrapper: :small_field %>
+<%= f.input :value1,
+            label: ItemService.value_label('weapon', 1),
+            wrapper: :small_field %>
+<%= f.input :value2,
+            label: ItemService.value_label('weapon', 2),
+            wrapper: :small_field %>
+<%= f.input :value3,
+            as: :select,
+            collection: List::WEAPON_TYPES.invert,
+            label: ItemService.value_label('weapon', 3),
+            wrapper: :small_field,
+            input_html: { class: 'select2' } %>
+<%= f.input :value4,
+            label: ItemService.value_label('weapon', 4),
+            wrapper: :small_field %>
+<%= f.input :value5,
+            label: ItemService.value_label('weapon', 5),
+            wrapper: :small_field %>
