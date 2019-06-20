@@ -1,4 +1,4 @@
-<% if @item.item_type.in?(%w[drinkcon furniture shelf weapon]) %>
+<% if @item.item_type.in?(%w[container drinkcon furniture shelf trap weapon]) %>
   <%= render partial: "items/values/#{@item.item_type}", locals: { f: f } %>
 <% else %>
   <%= render partial: "items/values/standard", locals: { f: f } %>  

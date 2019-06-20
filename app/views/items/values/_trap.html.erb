@@ -15,6 +15,7 @@
             collection: List::TRAP_FLAGS.invert,
             label: ItemService.value_label('trap', 3),
             wrapper: :small_field,
+            selected: List.bitvector_to_bits(@item.value3),
             input_html: { multiple: true, class: 'select2' } %>
 <%= f.input :value4,
             label: ItemService.value_label('trap', 4),

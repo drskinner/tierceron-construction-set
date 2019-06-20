@@ -92,6 +92,8 @@ class Item < ApplicationRecord
       List::LIQUID_TYPES[value2]
     when 'furniture'
       List.bitvector_to_labels(value2, List::PREPOSITIONS)
+    when 'trap'
+      List::TRAP_TYPES[value2]
     else
       value2
     end
@@ -101,6 +103,8 @@ class Item < ApplicationRecord
     case item_type
     when 'furniture'
       List.bitvector_to_labels(value3, List::PREPOSITIONS)
+    when 'trap'
+      List.bitvector_to_labels(value3, List::TRAP_FLAGS)
     when 'weapon'
       List::WEAPON_TYPES[value3]
     else
