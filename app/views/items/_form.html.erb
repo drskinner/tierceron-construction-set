@@ -70,12 +70,16 @@
       $(document).on("change", "#item_item_type", function(){
         let itemType = $(this).val();
 
-        if (itemType === 'drinkcon') {
+        if (itemType === 'container') {
+          $('#item-values-fields').html("<%= j render partial: 'items/values/container', locals: { f: f } %>");
+        } else if (itemType === 'drinkcon') {
           $('#item-values-fields').html("<%= j render partial: 'items/values/drinkcon', locals: { f: f } %>");
         } else if (itemType === 'furniture') {
           $('#item-values-fields').html("<%= j render partial: 'items/values/furniture', locals: { f: f } %>");
         } else if (itemType === 'shelf') {
           $('#item-values-fields').html("<%= j render partial: 'items/values/shelf', locals: { f: f } %>");
+        } else if (itemType === 'trap') {
+          $('#item-values-fields').html("<%= j render partial: 'items/values/trap', locals: { f: f } %>");
         } else if (itemType === 'weapon') {
           $('#item-values-fields').html("<%= j render partial: 'items/values/weapon', locals: { f: f } %>");
         } else {

@@ -6,6 +6,38 @@ class List
                       16 => 'eatkey'
                     }
 
+  LEVER_FLAGS = {}.tap { |flags|
+                         %w[up
+                            unlock
+                            d_north
+                            d_south
+                            d_east
+                            d_west
+                            d_up
+                            d_down
+                            door
+                            container
+                            open
+                            close
+                            passage
+                            oload
+                            mload
+                            teleport
+                            teleportall
+                            teleportplus
+                            death
+                            cast
+                            fakeblade
+                            rand4
+                            rand6
+                            trapdoor
+                            anotherroom
+                            usedial
+                            absolutevnum
+                            showroomdesc
+                            autoreturn].each_with_index { |bit, index| flags[2**index] = bit }
+                       }
+
   LIQUID_TYPES = {  0 => 'water',
                     1 => 'beer',
                     2 => 'white wine',
@@ -40,6 +72,40 @@ class List
   PREPOSITIONS = { 1 => 'on', 2 => 'in', 4 => 'at', 8 => 'under' }
 
   PREPOSITIONS_SHELF = { 1 => 'on', 2 => 'in', 3 => 'at', 4 => 'under' }
+
+  TRAP_FLAGS = {}.tap { |flags|
+                        ['on room',
+                         'on object',
+                         'enter',
+                         'leave',
+                         'open',
+                         'close',
+                         'get',
+                         'put',
+                         'pick',
+                         'unlock',
+                         'north',
+                         'south',
+                         'east',
+                         'west',
+                         'up',
+                         'down',
+                         'examine'].each_with_index { |bit, index| flags[2**index] = bit }
+                      }
+
+  TRAP_TYPES = {  1 => 'poison gas',
+                  2 => 'poison dart',
+                  3 => 'poison needle',
+                  4 => 'poison dagger',
+                  5 => 'poison arrow',
+                  6 => 'blindness gas',
+                  7 => 'sleeping gas',
+                  8 => 'flame',
+                  9 => 'explosion',
+                 10 => 'acid spray',
+                 11 => 'electric shock',
+                 12 => 'blade'
+               }
 
   WEAPON_TYPES = {  0 => 'barehand or miscellaneous',
                     1 => 'club, hammer, or mace',
