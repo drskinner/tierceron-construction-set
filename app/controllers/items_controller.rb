@@ -18,14 +18,14 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(item_params)
-
     # Resolve bitvectors
     (0..5).each do |i|
       if params[:item]["value#{i}"].kind_of?(Array)
         params[:item]["value#{i}"] = List.sum_bitvector(params[:item]["value#{i}"])
       end
     end
+
+    @item = Item.new(item_params)
 
     if @item.save
       redirect_to @item
