@@ -40,12 +40,10 @@
   <div class="row">
     <div id="item-values" class="col-md-6">
       <fieldset>
-        <legend>Item Values</legend>
-          <% (0..5).each do |index| %>
-            <%= f.input "value#{index}".to_sym,
-                        label: ItemService.value_label(@item.item_type, index),
-                        wrapper: :small_field %>
-          <% end %>
+        <legend>Item Values <span id="item-values-type"></span></legend>
+        <div id="item-values-fields">
+          <%= render partial: 'items/values/types', locals: { f: f } %>
+        </div>
       </fieldset>
     </div>
 
@@ -63,33 +61,13 @@
 
   <%= f.button :submit unless action_name == 'show' %>
 
-<% end %>
-
-<% content_for :extra_js do %>
-  <script>
-    $(document).ready(function() {
-      $('select.select2').select2();
-    });
-  </script>
-
-  <script>
-    $(document).on("change", "#item_item_type", function(){
-      let itemType = $(this).val();
-
-      $.ajax({
-        url: "/items/value_labels",
-        method: "GET",
-        dataType: "json",
-        data: {item_type: itemType},
-        error: function (xhr, status, error) {
-          console.error('AJAX Error: ' + status + error);
-        },
-        success: function (response) {
-          response.labels.forEach(function(label, index) {
-            $(`label[for='item_value${index}']`).html(label);
-          });
-        }
+  <% content_for :extra_js do %>
+    <script>
+      $(document).ready(function() {
+        $('select.select2').select2();
       });
-    });
-  </script>
+    </script>
+
+    <%= render partial: 'dynamic_fields', formats: [:js], locals: { f: f } %>
+  <% end %>
 <% end %>

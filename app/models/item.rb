@@ -66,4 +66,60 @@ class Item < ApplicationRecord
     wear_flags.map { |flag| I18n.t("lists.item.wear_flags.#{flag}") }.join(', ')
   end
 
+  def value0_display
+    case item_type
+    when 'furniture'
+      List.bitvector_to_labels(value0, List::PREPOSITIONS)
+    else
+      value0
+    end
+  end
+
+  def value1_display
+    case item_type
+    when 'furniture'
+      List.bitvector_to_labels(value1, List::PREPOSITIONS)
+    when 'shelf'
+      List.bitvector_to_labels(value1, List::CONTAINER_FLAGS)
+    else
+      value1
+    end
+  end
+
+  def value2_display
+    case item_type
+    when 'drinkcon'
+      List::LIQUID_TYPES[value2]
+    when 'furniture'
+      List.bitvector_to_labels(value2, List::PREPOSITIONS)
+    when 'trap'
+      List::TRAP_TYPES[value2]
+    else
+      value2
+    end
+  end
+
+  def value3_display
+    case item_type
+    when 'furniture'
+      List.bitvector_to_labels(value3, List::PREPOSITIONS)
+    when 'trap'
+      List.bitvector_to_labels(value3, List::TRAP_FLAGS)
+    when 'weapon'
+      List::WEAPON_TYPES[value3]
+    else
+      value3
+    end
+  end
+
+  def value4_display
+    case item_type
+    when 'furniture'
+      List::PREPOSITIONS[value4]
+    when 'shelf'
+      List::PREPOSITIONS_SHELF[value4]
+    else
+      value4
+    end
+  end
 end

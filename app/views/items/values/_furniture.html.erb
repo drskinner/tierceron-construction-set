@@ -1,0 +1,37 @@
+<%= f.input :value0,
+            as: :select,
+            collection: List::PREPOSITIONS.invert,
+            label: ItemService.value_label('furniture', 0),
+            wrapper: :small_field,
+            selected: List.bitvector_to_bits(@item.value0),
+            input_html: { multiple: true, class: 'select2' } %>
+<%= f.input :value1,
+            as: :select,
+            collection: List::PREPOSITIONS.invert,
+            label: ItemService.value_label('furniture', 1),
+            wrapper: :small_field,
+            selected: List.bitvector_to_bits(@item.value1),
+            input_html: { multiple: true, class: 'select2' } %>
+<%= f.input :value2,
+            as: :select,
+            collection: List::PREPOSITIONS.invert,
+            label: ItemService.value_label('furniture', 2),
+            wrapper: :small_field,
+            selected: List.bitvector_to_bits(@item.value2),
+            input_html: { multiple: true, class: 'select2' } %>
+<%= f.input :value3,
+            as: :select,
+            collection: List::PREPOSITIONS.invert,
+            label: ItemService.value_label('furniture', 3),
+            wrapper: :small_field,
+            selected: List.bitvector_to_bits(@item.value3),
+            input_html: { multiple: true, class: 'select2' } %>
+<%= f.input :value4,
+            as: :select,
+            collection: List::PREPOSITIONS.invert,
+            label: ItemService.value_label('furniture', 4),
+            wrapper: :small_field,
+            input_html: { class: 'select2' } %>
+<%= f.input :value5,
+            label: ItemService.value_label('furniture', 5),
+            wrapper: :small_field %>

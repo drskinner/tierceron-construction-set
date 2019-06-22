@@ -18,6 +18,13 @@ class ItemsController < ApplicationController
   end
 
   def create
+    # Resolve bitvectors
+    (0..5).each do |i|
+      if params[:item]["value#{i}"].kind_of?(Array)
+        params[:item]["value#{i}"] = List.sum_bitvector(params[:item]["value#{i}"])
+      end
+    end
+
     @item = Item.new(item_params)
 
     if @item.save
@@ -37,6 +44,13 @@ class ItemsController < ApplicationController
 
   def update
     @item = Item.find(params[:id])
+
+    # Resolve bitvectors
+    (0..5).each do |i|
+      if params[:item]["value#{i}"].kind_of?(Array)
+        params[:item]["value#{i}"] = List.sum_bitvector(params[:item]["value#{i}"])
+      end
+    end
 
     if @item.update(item_params)
       redirect_to @item
