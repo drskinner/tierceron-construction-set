@@ -11,6 +11,20 @@ class ItemsController < ApplicationController
 
     @items = @items.order(sort => direction)
                    .page(params[:page])
+
+    respond_to do |format|
+      format.html
+      format.smaug do
+        if (@zone = Zone.find_by(id: params[:by_zone_id]))
+          filename = "#{Time.now.strftime('%Y%m%d_%H%M%S')}_items_#{@zone.filename}.are"
+          send_data ItemService.export(Item.accessible_by(current_ability)
+                                           .by_zone_id(@zone.id)
+                                           .order(vnum: :asc)),
+                    type: 'text/plain; charset=UTF-8;',
+                    disposition: "attachment; filename=#{Time.now.strftime('%Y%m%d_%H%M%S')}_items.are"
+        end
+      end
+    end
   end
 
   def new

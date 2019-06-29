@@ -68,6 +68,31 @@ module ItemService
     count
   end
 
+  def self.export(items)
+    [].tap { |file|
+      items.each do |i|
+        file << '#OBJECT'
+        file << "Vnum     #{i.vnum}"
+        file << "Keywords #{i.keywords}~"
+        file << "Type     #{i.item_type}~"
+        file << "Short    #{i.short_desc}~"
+        file << "Long     #{i.long_desc}~"
+        if (i.full_desc.present?)
+          file << "Full     #{ApplicationHelper.word_wrap(i.full_desc)}".gsub("\r", '')
+          file << "~"
+        end
+        file << "Flags    #{i.flags.join(' ')}~" unless i.flags.blank?
+        file << "WFlags   #{i.wear_flags.join(' ')}~" unless i.wear_flags.blank?
+        file << "Values   #{i.value0} #{i.value1} #{i.value2} #{i.value3} #{i.value4} #{i.value5}"
+        file << "Stats    #{i.weight} #{i.cost} #{i.rent} #{i.level} #{i.layers}"
+
+        file << '#ENDOBJECT'
+        file << ''
+      end
+      file << "\n"
+    }.join("\n")
+  end
+
   def self.value_label(item_type, index)
     return "Value#{index}" if item_type.blank?
 

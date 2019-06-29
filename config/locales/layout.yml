@@ -17,6 +17,7 @@ en:
     confirm: "Are you sure?"
     delete: "Delete"
     edit: "Edit"
+    export: "Export"
     view: "View"
   messages:
     no_data: "(No Data)"
@@ -25,6 +26,7 @@ en:
       edit: "Edit %{record}"
       edit_item: "Edit Object VNUM %{vnum}"
       edit_social: "Edit Command: %{record}"
+      export: "Export area file: %{record}"
       index: "Manage %{model}"
       new: "Create %{model}"
       show: "View %{record}"
