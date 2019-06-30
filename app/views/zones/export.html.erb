@@ -9,14 +9,16 @@
         <%= f.input :filename, as: :show %>
         <%= f.input :author, as: :show %>
         <div class="form-group row show form-group-valid">
-          <label class="col-sm-3 col-form-label">Export Area File</label>
+          <label class="col-sm-3 col-form-label">
+            <%= I18n.t('zone.export.links') %>
+          </label>
           <div class="col-sm-3 pl-2">
-            <div class="show-input">Export Rooms</div>
+            <div class="show-input"><%= I18n.t('zone.export.rooms') %></div>
             <div class="show-input">
-              <%= link_to('Export Objects', items_path(by_zone_id: @zone.id, format: 'smaug')) %>
+              <%= link_to(I18n.t('zone.export.items'), items_path(by_zone_id: @zone.id, format: 'smaug')) %>
             </div>
-            <div class="show-input">Export Mobiles</div>
-            <div class="show-input">Export Full Area File</div>
+            <div class="show-input"><%= I18n.t('zone.export.mobiles') %></div>
+            <div class="show-input"><%= I18n.t('zone.export.full') %></div>
           </div>
         </div>
       </fieldset>
