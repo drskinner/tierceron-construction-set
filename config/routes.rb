@@ -19,5 +19,7 @@ Rails.application.routes.draw do
     post :import, on: :collection
   end
 
-  resources :zones
+  resources :zones do
+    get :export, on: :member
+  end
 end

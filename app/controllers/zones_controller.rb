@@ -52,6 +52,10 @@ class ZonesController < ApplicationController
     redirect_to zones_path
   end
 
+  def export
+    @zone = Zone.find(params[:id])
+  end
+
   private
 
   def zone_params

@@ -17,5 +17,11 @@ en:
             owner_id:
               required: "must be an internal user"
   zone:
+    export:
+      full: "Export Full Area File"
+      items: "Export Objects"
+      links: "Export Links"
+      mobiles: "Export Mobiles"
+      rooms: "Export Rooms"
     fieldset:
       metadata: "Zone Metadata"

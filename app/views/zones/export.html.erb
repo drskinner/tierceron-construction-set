@@ -1,0 +1,31 @@
+<% content_for :title, I18n.t('page.action_title.export', record: @zone.filename) %>
+
+<%= simple_form_for @zone, wrapper: :horizontal_form do |f| %>
+  <div class="row">
+    <div class="col-md-12">
+      <fieldset>
+        <legend><%= I18n.t('zone.fieldset.metadata') %></legend>
+        <%= f.input :name, as: :show %>
+        <%= f.input :filename, as: :show %>
+        <%= f.input :author, as: :show %>
+        <div class="form-group row show form-group-valid">
+          <label class="col-sm-3 col-form-label">
+            <%= I18n.t('zone.export.links') %>
+          </label>
+          <div class="col-sm-3 pl-2">
+            <div class="show-input"><%= I18n.t('zone.export.rooms') %></div>
+            <div class="show-input">
+              <%= link_to(I18n.t('zone.export.items'), items_path(by_zone_id: @zone.id, format: 'smaug')) %>
+            </div>
+            <div class="show-input"><%= I18n.t('zone.export.mobiles') %></div>
+            <div class="show-input"><%= I18n.t('zone.export.full') %></div>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+  <div>
+<% end %>
+
+
+
+

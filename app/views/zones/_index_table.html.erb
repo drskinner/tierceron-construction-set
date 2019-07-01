@@ -10,6 +10,7 @@
       <%= sortable 'min_vnum' %>
       <th class="action"></th>
       <%= tag.th class: 'action' if can? :update, Zone %>
+      <%= tag.th class: 'action' if can? :export, Zone %>
       <%= tag.th class: 'action' if can? :destroy, Zone %>
     </tr>
 
@@ -28,6 +29,13 @@
             <%= link_to svg('edit'),
                         edit_zone_path(zone),
                         title: I18n.t('index_table.edit') %>
+          <% end %>
+        <% end %>
+        <% if can? :export, Zone %>
+          <%= tag.td class: 'action' do %>
+            <%= link_to svg('export'),
+                        export_zone_path(zone),
+                        title: I18n.t('index_table.export') %>
           <% end %>
         <% end %>
         <% if can? :destroy, Zone %>

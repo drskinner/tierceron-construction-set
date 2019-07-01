@@ -15,7 +15,7 @@ class Item < ApplicationRecord
   scope :by_item_type, ->(item_type) { where(item_type: item_type) }
   scope :by_zone_id, (lambda { |zone_id|
     zone = Zone.find_by(id: zone_id)
-    where('vnum >= ? AND vnum <= ?', zone.min_vnum, zone.max_vnum)
+    where('vnum >= ? AND vnum <= ?', zone.min_vnum, zone.max_vnum) unless zone.blank?
   })
   scope :keywords_contain, ->(key) { where('keywords ILIKE ?', "%#{key}%") }
 
