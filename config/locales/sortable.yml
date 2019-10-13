@@ -3,6 +3,9 @@ en:
     items:
       item_type: "Type"
       vnum: "VNUM"
+    mobiles:
+      level: "Level"
+      vnum: "VNUM"
     socials:
       char_no_arg: "Sample"
       name: "Name"

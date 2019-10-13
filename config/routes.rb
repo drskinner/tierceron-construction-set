@@ -15,6 +15,10 @@ Rails.application.routes.draw do
     get :value_labels, on: :collection
   end
 
+  resources :mobiles do
+    post :import, on: :collection
+  end
+
   resources :socials do
     post :import, on: :collection
   end

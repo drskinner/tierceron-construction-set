@@ -1,0 +1,14 @@
+en:
+  activerecord:
+    attributes:
+      mobile:
+        level: "Level"
+        keywords: "Keywords"
+        short_desc: "Short Description"
+        vnum: "VNUM"
+    errors:
+      models:
+        mobile:
+          attributes:
+            vnum:
+              inclusion: "is not in your assigned range"

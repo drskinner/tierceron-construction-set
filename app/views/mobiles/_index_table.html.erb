@@ -1,0 +1,51 @@
+<div id="index-table">
+  <div class="pagination-info">
+    <%= pagination_info(page: params[:page], page_count: @mobiles.count, full_count: @full_count) %>
+  </div>
+
+  <table class="table table-sm table-striped">
+    <tr class="index-header">
+      <%= sortable 'vnum' %>
+      <%= sortable 'level' %>
+      <th><%= I18n.t('activerecord.attributes.mobile.keywords') %></th>
+      <th><%= I18n.t('activerecord.attributes.mobile.short_desc') %></th>
+      <th class="action"></th>
+      <%= tag.th class: 'action' if can? :update, Mobile %>
+      <%= tag.th class: 'action' if can? :destroy, Mobile %>
+    </tr>
+
+    <% @mobiles.each do |mobile| %>
+      <tr>
+        <td><%= mobile.vnum %></td>
+        <td><%= mobile.level %></td>
+        <td><%= mobile.keywords %></td>
+        <td><%= mobile.short_desc %></td>
+        <td class="action">
+          <%= link_to svg('view'),
+                      mobile_path(mobile),
+                      title: I18n.t('index_table.view') %>
+        </td>
+        <% if can? :update, Mobile %>
+          <%= tag.td class: 'action' do %>
+            <%= link_to svg('edit'),
+                        edit_mobile_path(mobile),
+                        title: I18n.t('index_table.edit') %>
+          <% end %>
+        <% end %>
+        <% if can? :destroy, Mobile %>
+          <%= tag.td class: 'action' do %>
+            <%= link_to svg('delete'),
+                        mobile_path(mobile),
+                        title: I18n.t('index_table.delete'),
+                        method: :delete,
+                        data: { confirm: I18n.t('index_table.confirm') } %>
+          <% end %>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+
+  <%= paginate @mobiles, theme: 'twitter-bootstrap-4',
+                       pagination_class: 'pagination-md',
+                       nav_class: 'd-inline-b' %>
+</div>

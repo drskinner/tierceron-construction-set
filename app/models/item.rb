@@ -4,7 +4,7 @@ class Item < ApplicationRecord
   validates :vnum, presence: true, 
                    uniqueness: true
   validates :vnum, inclusion: { in: (User.current.present? ? User.current.owned_vnums : []) },
-                     if: Proc.new { |i| User.current.builder? && i.vnum.present? }
+                   if: Proc.new { |i| User.current.builder? && i.vnum.present? }
   validates :keywords, presence: true
   validates :item_type, presence: true
   validates :short_desc, presence: true

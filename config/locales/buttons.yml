@@ -2,6 +2,8 @@ en:
   button:
     item:
       import: "Import Objects"
+    mobile:
+      import: "Import Mobs"
     search:
       clear: "Clear Filters"
       submit: "Search"

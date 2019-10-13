@@ -1,0 +1,12 @@
+<%= simple_form_for :mobile, html: { multipart: true }, :url => '/mobiles/import' do |f| %>
+  <fieldset>
+    <legend>
+      <span><%= I18n.t('services.mobile.import') %></span>
+    </legend>
+    <div class="import-controls">
+      <%= f.input :import_file, as: :file, label: false %>
+
+      <%= f.button :submit, I18n.t('button.mobile.import') %>
+    </div>
+  </fieldset>
+<% end %>

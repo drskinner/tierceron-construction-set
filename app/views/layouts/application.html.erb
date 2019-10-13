@@ -28,7 +28,8 @@
 
       <% if user_signed_in? %>
         <nav id="top-nav" class="row">
-          <%= link_to 'Objects', items_path, class: 'navbar-link pr-1' %>|
+          <%= link_to 'Mobiles', mobiles_path, class: 'navbar-link pr-1' %>|
+          <%= link_to 'Objects', items_path, class: 'navbar-link px-1' %>|
           <%= link_to 'Socials', socials_path, class: 'navbar-link px-1' %>|
           <% if can? :read, User %>
             <%= link_to 'Users', users_path, class: 'navbar-link px-1' if can? :read, User %>|

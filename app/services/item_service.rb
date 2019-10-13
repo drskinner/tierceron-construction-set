@@ -21,17 +21,17 @@ module ItemService
         when 'Vnum     '
           @item.vnum = line[9..-1]
         when 'Keywords '
-          @item.keywords = ItemService.get_import_value(line)
+          @item.keywords = get_import_value(line)
         when 'Type     '
-          @item.item_type = ItemService.get_import_value(line)
+          @item.item_type = get_import_value(line)
         when 'Short    '
-          @item.short_desc = ItemService.get_import_value(line)
+          @item.short_desc = get_import_value(line)
         when 'Long     '
-          @item.long_desc = ItemService.get_import_value(line)
+          @item.long_desc = get_import_value(line)
         when 'Flags    '
-          @item.flags = ItemService.get_import_value(line).split(' ')
+          @item.flags = get_import_value(line).split(' ')
         when 'WFlags   '
-          @item.wear_flags = ItemService.get_import_value(line).split(' ')
+          @item.wear_flags = get_import_value(line).split(' ')
         when 'Values   '
           temp_values = line[9..-1].split(' ')
           (0..5).each do |index|
@@ -39,11 +39,11 @@ module ItemService
           end
         when 'Stats    '
           stats = line[9..-1].split(' ')
-          @item.weight = stats[0];
-          @item.cost   = stats[1];
-          @item.rent   = stats[2];
-          @item.level  = stats[3];
-          @item.layers = stats[4];
+          @item.weight = stats[0]
+          @item.cost   = stats[1]
+          @item.rent   = stats[2]
+          @item.level  = stats[3]
+          @item.layers = stats[4]
         when '#ENDOBJEC'
           object_open = false
           if @item.valid?
@@ -52,7 +52,7 @@ module ItemService
           end
         when 'Full     '
           full_desc_open = true
-          @item.full_desc = ItemService.get_import_value(line)
+          @item.full_desc = get_import_value(line)
         else
           if full_desc_open
             if line.start_with?('~')
