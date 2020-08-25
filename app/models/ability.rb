@@ -18,8 +18,7 @@ class Ability
       can :read, Zone
 
     when 'builder'
-      can :create, Item
-      can :read, Item
+      can %i[create read], Item
       can %i[update destroy], Item, vnum: user.owned_vnums
       can :read, Social
       can :read, User
