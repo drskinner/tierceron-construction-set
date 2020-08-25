@@ -16,6 +16,8 @@ en:
           attributes:
             owner_id:
               required: "must be an internal user"
+    models:
+      zone: "Zone"
   zone:
     export:
       full: "Export Full Area File"

@@ -19,3 +19,5 @@ en:
           attributes:
             vnum:
               inclusion: "is not in your assigned range"
+    models:
+      item: "Object"

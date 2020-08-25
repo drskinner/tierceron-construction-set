@@ -10,7 +10,7 @@ class Ability
       cannot :destroy, Social
 
     when 'implementor'
-      can %i[read update], Item
+      can %i[create read update], Item
       can :destroy, Item, vnum: user.owned_vnums
       can %i[read update create], Social
       can :read, User
@@ -18,6 +18,7 @@ class Ability
       can :read, Zone
 
     when 'builder'
+      can :create, Item
       can :read, Item
       can %i[update destroy], Item, vnum: user.owned_vnums
       can :read, Social

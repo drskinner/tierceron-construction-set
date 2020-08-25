@@ -19,6 +19,8 @@ en:
         pronoun_class_prompt: "-- Select Pronoun Type --"
         role: "Role"
         role_id: "Role"
+    models:
+      user: "User"
   user:
     fieldset:
       cancel_account: "Cancel Account"
