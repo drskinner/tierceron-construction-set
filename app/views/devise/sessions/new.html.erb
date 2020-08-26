@@ -1,6 +1,17 @@
 <div class="row">
-  <div id="login-form" class="col-md-6 offset-md-3">
+  <div class="col-md-6"></div>
+  <div class="col-md-6">
     <p><%= I18n.t('user.instructions.sign_in') %></p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <%= image_tag 'crane.jpg' , style: "width: 95%;" %>
+    <div class="devise-links">
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>
+  <div id="login-form" class="col-md-6">
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <fieldset class="login">
         <legend><%= I18n.t('user.fieldset.log_in') %></legend>
@@ -9,10 +20,6 @@
         <%= f.input :remember_me, label: t('models.user.headings.remember_me'), as: :boolean if devise_mapping.rememberable? %>
 
         <%= f.submit I18n.t('button.user.sign_in'), class: 'btn btn-default' %>
-
-        <div class="devise-links">
-          <%= render "devise/shared/links" %>
-        </div>
       </fieldset>
     <% end %>
   </div>

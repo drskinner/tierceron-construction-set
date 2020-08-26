@@ -94,8 +94,8 @@
   background: #707070;
 }
 
-.simple_form div.devise-links {
-  margin: 0px 0px 10px 20px;
+div.devise-links {
+  margin: 24px 0px 10px 10px;
 }
 
 .search-form {
