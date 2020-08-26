@@ -55,7 +55,10 @@
       <section id="main-content" class="row">
         <div class="col-md-12">
           <% flash.each do |key, value| %>
-            <div class="alert alert-<%= key %> w-100"><%= value %></div>
+            <%# TODO: remove this conditional hack %>
+            <% unless action_name == 'show' && key == 'error' %>
+              <div class="alert alert-<%= key %> w-100"><%= value %></div>
+            <% end %>
           <% end %>
           <%= yield %>
         </div>

@@ -3,3 +3,5 @@ en:
     attributes:
       role:
         name: "Name"
+    models:
+      role: "Role"
