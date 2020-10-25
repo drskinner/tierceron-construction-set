@@ -1,0 +1,9 @@
+heroku pg:backups:capture --app tierceron-construction-set
+rm latest.dump
+heroku pg:backups:download
+rails db:environment:set RAILS_ENV=development
+rails db:drop
+rails db:create
+pg_restore --verbose --clean --no-acl --no-owner -h localhost -d tcs_development latest.dump
+
+# it may no longer be necessary to drop and create the DB; look into this
