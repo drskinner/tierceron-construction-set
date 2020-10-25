@@ -28,4 +28,4 @@
 
 # Ignore files related to restoring the database.
 /*.dump
-/RESTORE_DB
+
